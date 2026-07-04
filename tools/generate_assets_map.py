@@ -96,6 +96,8 @@ CLUB_NAMES = {
     # New SAC committees (added 2026-06)
     "SAC_Academics": "SAC Academics",
     "SAC_Hostel": "SAC Hostel Committee",
+    # SAC Sports clubs (added 2026-07)
+    "SAC_Sports": "SAC Sports",
 }
 
 CLUB_TAGS = {
@@ -116,6 +118,8 @@ CLUB_TAGS = {
     # New SAC committees (added 2026-06)
     "SAC_Academics": ["academics", "academic-committee"],
     "SAC_Hostel": ["hostel", "wing-representative", "sub-committee", "residential"],
+    # SAC Sports clubs (added 2026-07)
+    "SAC_Sports": ["sports", "gym", "badminton", "basketball", "chess", "kabaddi", "self-defence"],
 }
 
 CATEGORY_LABEL = {
@@ -177,6 +181,15 @@ CATEGORY_LABEL = {
     "NH_girls": "Wing Representatives - NH girls hostel",
     "NSCB_boys": "Wing Representatives - NSCB boys hostel",
     "NSCB_girls": "Wing Representatives - NSCB girls hostel",
+    # SAC Sports (added 2026-07)
+    "21MS_farewell": "Farewell event (21 MS batch)",
+    "FAREWELL": "Farewell event",
+    "Tug_of_War_photos": "Tug of War event",
+    "self-defence": "Self-defence workshop",
+    "Events_and_Activities": "Events and activities",
+    "Members": "Club members",
+    "Photos_and_Medias": "Photos and media",
+    "ACTIVE_MEMBERS_images": "Images extracted from active members list",
 }
 
 ROLES_KW = {
