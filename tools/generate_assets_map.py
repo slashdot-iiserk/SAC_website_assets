@@ -190,6 +190,34 @@ CATEGORY_LABEL = {
     "Members": "Club members",
     "Photos_and_Medias": "Photos and media",
     "ACTIVE_MEMBERS_images": "Images extracted from active members list",
+    # Nrutya (added 2026-07)
+    "Dance_Battle": "IICM Dance Battle",
+    "Dance_battle": "IICM Dance Battle",
+    "Group_Dance": "IICM Group Dance",
+    "Solo_Classical": "IICM Solo Classical Dance",
+    "Synchro": "IICM Synchro Dance",
+    "Winning_Moment": "IICM Prize Ceremony",
+    "Garba_Night": "Garba Night event",
+    "Interbatch_Dance_Competition": "Interbatch Dance Competition",
+    "Dance-Club-Workshops": "Dance workshop",
+    "Semi-Classical- Dance- Workshop": "Semi-Classical Dance Workshop",
+    "Hip-Hop": "Hip-Hop Workshop",
+    "AnnualProduction": "Annual Production",
+    # Music Club (added 2026-07)
+    "Jhankaar": "Jhankaar — Classical Music event",
+    "Rampage": "Rampage — Battle of Bands",
+    "Voice": "The Voice — Singing Competition",
+    # Nature Club (added 2026-07)
+    "Ecotrail": "Ecotrail — Nature walk",
+    "Field_Trip": "Field Trip",
+    "Field_trip": "Field trip",
+    # IKQC categories (added 2026-07)
+    "Cult-Consp": "Cult Consp — Cultural Conspiracy event",
+    "dublin_wager": "Dublin Wager — Quiz event",
+    "freshers": "Freshers' event",
+    "interbatch": "Interbatch event",
+    "music_quiz": "Music Quiz event",
+    "tri-quizard": "Tri-Wizard — Quiz event",
 }
 
 ROLES_KW = {
@@ -368,9 +396,16 @@ def split_ob_filename(fname: str) -> tuple[str, str | None, str | None]:
         else:
             parts = [stripped]
         marker = "new" if base.startswith("nOB-") else "current"
+        # Strip known club prefix abbreviations from the name portion
         if len(parts) >= 2:
             return clean_token(parts[0]), clean_token(parts[-1]), marker
-        return clean_token(stripped), None, marker
+        # For single-part names with club prefixes (e.g. "IKQC-Adhiraj")
+        name = stripped
+        for prefix in ("IKQC-", "IKQC_"):
+            if name.startswith(prefix):
+                name = name[len(prefix):]
+                break
+        return clean_token(name), None, marker
 
     # Try multi-word role match from a known list, looking at the tail of the base.
     # Roles can be 1-3 words joined by underscores (e.g. "Event_Manager",
@@ -526,9 +561,12 @@ def classify_and_describe(
         else:
             description = "Club information document (parsed from DOCX/PDF)."
     elif ftype == "markdown" and is_ob_category:
-        # Office-bearer bio document (e.g. Singularity OBs)
+        # Office-bearer bio document (e.g. Singularity OBs).
+        # These are markdown TEXT docs, not portrait images, so
+        # is_ob_portrait stays False — the website can still surface
+        # them via the "office-bearer" role but won't try to render
+        # text as a photo.
         flags["is_markdown_content"] = True
-        flags["is_ob_portrait"] = True
         role = "office-bearer"
         person, ob_role, marker = split_ob_filename(fname)
         title = person or clean_token(fname)
