@@ -779,7 +779,7 @@ def generate_assets_map(
                 "id": eid,
                 "path": str(rel),
                 "absolute_path": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
-                "public_url": f"{site_base}/{ABSOLUTE_PATH_PREFIX}/{rel}",
+                "public_url": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
                 "club": club,
                 "club_name": CLUB_NAMES.get(club, club),
                 "category": parts[-2] if len(parts) > 2 else "(root)",
