@@ -104,7 +104,19 @@ CLUB_NAMES = {
     "SAC_Sports_GYM": "GYM Club",
     "SAC_Sports_Kabaddi": "Kabaddi Club",
     "SAC_Sports_SYDC": "SYDC - Self Defence Club",
+    "SAC_Sports_Athletics": "Athletics Club",
+    "SAC_Sports_Carrom": "Carrom Club",
+    "SAC_Sports_Cricket": "Cricket Club",
+    "SAC_Sports_Football": "Football Club",
+    "SAC_Sports_Gaming": "Gaming Club",
+    "SAC_Sports_Kho_Kho": "Kho-Kho Club",
+    "SAC_Sports_Lawn_Tennis": "Lawn Tennis Club",
+    "SAC_Sports_Rubik": "Rubik's Cube Club",
+    "SAC_Sports_Table_Tennis": "Table Tennis Club",
+    "SAC_Sports_Volleyball": "Volleyball Club",
     "Singularity_Astro_Club": "Singularity - The Astronomy Club",
+    "Slashdot_Programming_Club": "Slashdot - Programming Club",
+    "SPICMACAY": "SPICMACAY",
 }
 
 CLUB_TAGS = {
@@ -133,7 +145,19 @@ CLUB_TAGS = {
     "SAC_Sports_GYM": ["sports", "gym", "fitness"],
     "SAC_Sports_Kabaddi": ["sports", "kabaddi"],
     "SAC_Sports_SYDC": ["sports", "self-defence", "sydc"],
+    "SAC_Sports_Athletics": ["sports", "athletics", "running"],
+    "SAC_Sports_Carrom": ["sports", "carrom", "board-games"],
+    "SAC_Sports_Cricket": ["sports", "cricket"],
+    "SAC_Sports_Football": ["sports", "football", "soccer"],
+    "SAC_Sports_Gaming": ["sports", "gaming", "esports"],
+    "SAC_Sports_Kho_Kho": ["sports", "kho-kho", "traditional"],
+    "SAC_Sports_Lawn_Tennis": ["sports", "tennis", "lawn-tennis"],
+    "SAC_Sports_Rubik": ["sports", "rubik", "puzzles"],
+    "SAC_Sports_Table_Tennis": ["sports", "table-tennis", "ping-pong"],
+    "SAC_Sports_Volleyball": ["sports", "volleyball"],
     "Singularity_Astro_Club": ["academics", "astronomy", "science"],
+    "Slashdot_Programming_Club": ["academics", "programming", "coding"],
+    "SPICMACAY": ["cultural", "classical", "music", "heritage"],
 }
 
 CATEGORY_LABEL = {
