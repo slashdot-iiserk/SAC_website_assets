@@ -98,6 +98,13 @@ CLUB_NAMES = {
     "SAC_Hostel": "SAC Hostel Committee",
     # SAC Sports clubs (added 2026-07)
     "SAC_Sports": "SAC Sports",
+    "SAC_Sports_Badminton": "Badminton",
+    "SAC_Sports_Basketball": "Basketball",
+    "SAC_Sports_Chess": "Chess Club",
+    "SAC_Sports_GYM": "GYM Club",
+    "SAC_Sports_Kabaddi": "Kabaddi Club",
+    "SAC_Sports_SYDC": "SYDC - Self Defence Club",
+    "Singularity_Astro_Club": "Singularity - The Astronomy Club",
 }
 
 CLUB_TAGS = {
@@ -120,6 +127,13 @@ CLUB_TAGS = {
     "SAC_Hostel": ["hostel", "wing-representative", "sub-committee", "residential"],
     # SAC Sports clubs (added 2026-07)
     "SAC_Sports": ["sports", "gym", "badminton", "basketball", "chess", "kabaddi", "self-defence"],
+    "SAC_Sports_Badminton": ["sports", "badminton"],
+    "SAC_Sports_Basketball": ["sports", "basketball"],
+    "SAC_Sports_Chess": ["sports", "chess", "carrom"],
+    "SAC_Sports_GYM": ["sports", "gym", "fitness"],
+    "SAC_Sports_Kabaddi": ["sports", "kabaddi"],
+    "SAC_Sports_SYDC": ["sports", "self-defence", "sydc"],
+    "Singularity_Astro_Club": ["academics", "astronomy", "science"],
 }
 
 CATEGORY_LABEL = {
