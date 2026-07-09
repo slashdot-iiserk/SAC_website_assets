@@ -96,6 +96,27 @@ CLUB_NAMES = {
     # New SAC committees (added 2026-06)
     "SAC_Academics": "SAC Academics",
     "SAC_Hostel": "SAC Hostel Committee",
+    # SAC Sports clubs (added 2026-07)
+    "SAC_Sports": "SAC Sports",
+    "SAC_Sports_Badminton": "Badminton",
+    "SAC_Sports_Basketball": "Basketball",
+    "SAC_Sports_Chess": "Chess Club",
+    "SAC_Sports_GYM": "GYM Club",
+    "SAC_Sports_Kabaddi": "Kabaddi Club",
+    "SAC_Sports_SYDC": "SYDC - Self Defence Club",
+    "SAC_Sports_Athletics": "Athletics Club",
+    "SAC_Sports_Carrom": "Carrom Club",
+    "SAC_Sports_Cricket": "Cricket Club",
+    "SAC_Sports_Football": "Football Club",
+    "SAC_Sports_Gaming": "Gaming Club",
+    "SAC_Sports_Kho_Kho": "Kho-Kho Club",
+    "SAC_Sports_Lawn_Tennis": "Lawn Tennis Club",
+    "SAC_Sports_Rubik": "Rubik's Cube Club",
+    "SAC_Sports_Table_Tennis": "Table Tennis Club",
+    "SAC_Sports_Volleyball": "Volleyball Club",
+    "Singularity_Astro_Club": "Singularity - The Astronomy Club",
+    "Slashdot_Programming_Club": "Slashdot - Programming Club",
+    "SPICMACAY": "SPICMACAY",
 }
 
 CLUB_TAGS = {
@@ -116,6 +137,27 @@ CLUB_TAGS = {
     # New SAC committees (added 2026-06)
     "SAC_Academics": ["academics", "academic-committee"],
     "SAC_Hostel": ["hostel", "wing-representative", "sub-committee", "residential"],
+    # SAC Sports clubs (added 2026-07)
+    "SAC_Sports": ["sports", "gym", "badminton", "basketball", "chess", "kabaddi", "self-defence"],
+    "SAC_Sports_Badminton": ["sports", "badminton"],
+    "SAC_Sports_Basketball": ["sports", "basketball"],
+    "SAC_Sports_Chess": ["sports", "chess", "carrom"],
+    "SAC_Sports_GYM": ["sports", "gym", "fitness"],
+    "SAC_Sports_Kabaddi": ["sports", "kabaddi"],
+    "SAC_Sports_SYDC": ["sports", "self-defence", "sydc"],
+    "SAC_Sports_Athletics": ["sports", "athletics", "running"],
+    "SAC_Sports_Carrom": ["sports", "carrom", "board-games"],
+    "SAC_Sports_Cricket": ["sports", "cricket"],
+    "SAC_Sports_Football": ["sports", "football", "soccer"],
+    "SAC_Sports_Gaming": ["sports", "gaming", "esports"],
+    "SAC_Sports_Kho_Kho": ["sports", "kho-kho", "traditional"],
+    "SAC_Sports_Lawn_Tennis": ["sports", "tennis", "lawn-tennis"],
+    "SAC_Sports_Rubik": ["sports", "rubik", "puzzles"],
+    "SAC_Sports_Table_Tennis": ["sports", "table-tennis", "ping-pong"],
+    "SAC_Sports_Volleyball": ["sports", "volleyball"],
+    "Singularity_Astro_Club": ["academics", "astronomy", "science"],
+    "Slashdot_Programming_Club": ["academics", "programming", "coding"],
+    "SPICMACAY": ["cultural", "classical", "music", "heritage"],
 }
 
 CATEGORY_LABEL = {
@@ -177,6 +219,43 @@ CATEGORY_LABEL = {
     "NH_girls": "Wing Representatives - NH girls hostel",
     "NSCB_boys": "Wing Representatives - NSCB boys hostel",
     "NSCB_girls": "Wing Representatives - NSCB girls hostel",
+    # SAC Sports (added 2026-07)
+    "21MS_farewell": "Farewell event (21 MS batch)",
+    "FAREWELL": "Farewell event",
+    "Tug_of_War_photos": "Tug of War event",
+    "self-defence": "Self-defence workshop",
+    "Events_and_Activities": "Events and activities",
+    "Members": "Club members",
+    "Photos_and_Medias": "Photos and media",
+    "ACTIVE_MEMBERS_images": "Images extracted from active members list",
+    # Nrutya (added 2026-07)
+    "Dance_Battle": "IICM Dance Battle",
+    "Dance_battle": "IICM Dance Battle",
+    "Group_Dance": "IICM Group Dance",
+    "Solo_Classical": "IICM Solo Classical Dance",
+    "Synchro": "IICM Synchro Dance",
+    "Winning_Moment": "IICM Prize Ceremony",
+    "Garba_Night": "Garba Night event",
+    "Interbatch_Dance_Competition": "Interbatch Dance Competition",
+    "Dance-Club-Workshops": "Dance workshop",
+    "Semi-Classical- Dance- Workshop": "Semi-Classical Dance Workshop",
+    "Hip-Hop": "Hip-Hop Workshop",
+    "AnnualProduction": "Annual Production",
+    # Music Club (added 2026-07)
+    "Jhankaar": "Jhankaar — Classical Music event",
+    "Rampage": "Rampage — Battle of Bands",
+    "Voice": "The Voice — Singing Competition",
+    # Nature Club (added 2026-07)
+    "Ecotrail": "Ecotrail — Nature walk",
+    "Field_Trip": "Field Trip",
+    "Field_trip": "Field trip",
+    # IKQC categories (added 2026-07)
+    "Cult-Consp": "Cult Consp — Cultural Conspiracy event",
+    "dublin_wager": "Dublin Wager — Quiz event",
+    "freshers": "Freshers' event",
+    "interbatch": "Interbatch event",
+    "music_quiz": "Music Quiz event",
+    "tri-quizard": "Tri-Wizard — Quiz event",
 }
 
 ROLES_KW = {
@@ -355,9 +434,16 @@ def split_ob_filename(fname: str) -> tuple[str, str | None, str | None]:
         else:
             parts = [stripped]
         marker = "new" if base.startswith("nOB-") else "current"
+        # Strip known club prefix abbreviations from the name portion
         if len(parts) >= 2:
             return clean_token(parts[0]), clean_token(parts[-1]), marker
-        return clean_token(stripped), None, marker
+        # For single-part names with club prefixes (e.g. "IKQC-Adhiraj")
+        name = stripped
+        for prefix in ("IKQC-", "IKQC_"):
+            if name.startswith(prefix):
+                name = name[len(prefix):]
+                break
+        return clean_token(name), None, marker
 
     # Try multi-word role match from a known list, looking at the tail of the base.
     # Roles can be 1-3 words joined by underscores (e.g. "Event_Manager",
@@ -513,9 +599,12 @@ def classify_and_describe(
         else:
             description = "Club information document (parsed from DOCX/PDF)."
     elif ftype == "markdown" and is_ob_category:
-        # Office-bearer bio document (e.g. Singularity OBs)
+        # Office-bearer bio document (e.g. Singularity OBs).
+        # These are markdown TEXT docs, not portrait images, so
+        # is_ob_portrait stays False — the website can still surface
+        # them via the "office-bearer" role but won't try to render
+        # text as a photo.
         flags["is_markdown_content"] = True
-        flags["is_ob_portrait"] = True
         role = "office-bearer"
         person, ob_role, marker = split_ob_filename(fname)
         title = person or clean_token(fname)
@@ -728,7 +817,7 @@ def generate_assets_map(
                 "id": eid,
                 "path": str(rel),
                 "absolute_path": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
-                "public_url": f"{site_base}/{ABSOLUTE_PATH_PREFIX}/{rel}",
+                "public_url": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
                 "club": club,
                 "club_name": CLUB_NAMES.get(club, club),
                 "category": parts[-2] if len(parts) > 2 else "(root)",

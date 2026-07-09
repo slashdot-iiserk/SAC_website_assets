@@ -1,4 +1,4 @@
-# Nature Club (Sac Website)
+# Nature Club Sac Website
 
 NATURE CLUB (SAC WEBSITE)
 
