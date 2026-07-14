@@ -117,6 +117,7 @@ CLUB_NAMES = {
     "Singularity_Astro_Club": "Singularity - The Astronomy Club",
     "Slashdot_Programming_Club": "Slashdot - Programming Club",
     "SPICMACAY": "SPICMACAY",
+    "Slashdot_Programming_Club": "Slashdot — Coding & Design Club",
 }
 
 CLUB_TAGS = {
@@ -158,6 +159,7 @@ CLUB_TAGS = {
     "Singularity_Astro_Club": ["academics", "astronomy", "science"],
     "Slashdot_Programming_Club": ["academics", "programming", "coding"],
     "SPICMACAY": ["cultural", "classical", "music", "heritage"],
+    "Slashdot_Programming_Club": ["academics", "programming", "coding", "design", "slashdot"],
 }
 
 CATEGORY_LABEL = {
