@@ -94,6 +94,7 @@ CLUB_NAMES = {
     "Nrutya_-_The_Dance_Club_of_IISER_Kolkata": "Nrutya - Dance Club of IISER Kolkata",
     "PIXEL-Photography_Club": "PIXEL - Photography Club",
     # New SAC committees (added 2026-06)
+    "Placement_Cell": "SAC Placement Cell",
     "SAC_Academics": "SAC Academics",
     "SAC_Hostel": "SAC Hostel Committee",
     # SAC Sports clubs (added 2026-07)
@@ -136,6 +137,7 @@ CLUB_TAGS = {
     ],
     "PIXEL-Photography_Club": ["photography", "camera", "visual"],
     # New SAC committees (added 2026-06)
+    "Placement_Cell": ["academics", "placement", "career"],
     "SAC_Academics": ["academics", "academic-committee"],
     "SAC_Hostel": ["hostel", "wing-representative", "sub-committee", "residential"],
     # SAC Sports clubs (added 2026-07)
