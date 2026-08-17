@@ -117,5 +117,22 @@ ACTIVE PLAYERS OF OUR CLUB
 
 17)Lipsa Rani Senapati
 
+22MS
 
-![22MS](img_017.webp)
+
+
+![Image 17](img_017.webp)
+
+
+
+
+
+![18)Deepjay Sarkar(24MS)](img_018.webp)
+
+19)Himanshu Mech(24MS)
+
+
+20) Ashirbad Parida (24MS)
+
+21)Khushant Tomar (23MS)
+

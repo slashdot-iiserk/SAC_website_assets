@@ -4,7 +4,7 @@ Name: Devanathan Venugopal
 
 Designation: Office Bearer
 
-Bio:
+Bio: “
 
 Contact: dv25ms042@iiserkol.ac.in
 

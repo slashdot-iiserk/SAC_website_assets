@@ -2,8 +2,7 @@
 
 ## Page 1
 
-The Cricket Club Of IISER-K 
- 
+The Cricket Club Of IISER-K
 Club Name: IKCC-IISER Kolkata Cricket Club 
  
  
@@ -11,19 +10,26 @@ Club Name: IKCC-IISER Kolkata Cricket Club
  
  
 “ About Us ” 
-The IISER Kolkata Cricket Club promotes cricket and sportsmanship 
-among students through various competitive and recreational activities. 
-The club organises flagship events such as the Inter-Batch Cricket 
-Tournament and an Auction Cricket Tournament-IPL(IISER-K 
-Premier League), which encourage participation, teamwork, and healthy 
-competition within the campus community.
-The club also proudly represents IISER Kolkata in major inter-institute 
-sporting events, including the IISM (Inter IISER–NISER–CEBS 
-Sports Meet). The club has participated in Parakram (the annual inter-
-college sports festival of IIT (ISM) Dhanbad) in recent years. Through 
-these activities, the club provides students with opportunities to develop 
-their cricketing skills, leadership qualities, and team spirit while fostering 
-a vibrant sporting culture on campus.
+The IISER Kolkata Cricket Club promotes cricket and 
+sportsmanship among students through various competitive and 
+recreational activities. The club organises flagship events such as 
+the Inter-Batch Cricket Tournament and an Auction Cricket 
+Tournament-IPL(IISER-K Premier League), which encourage 
+participation, teamwork, and healthy competition within the 
+campus community. 
+The club also proudly represents IISER Kolkata in major inter-
+institute sporting events, including the IISM (Inter IISER–NISER–
+CEBS Sports Meet). The club has participated in Parakram (the 
+annual inter-college sports festival of IIT (ISM) Dhanbad) in recent 
+years. Through these activities, the club provides students with 
+opportunities to develop their cricketing skills, leadership 
+qualities, and team spirit while fostering a vibrant sporting culture 
+on campus. 
+Contact Us: 
+WhatsApp — https://chat.whatsapp.com/DLTAjsXoxiI0nWmzQ4BLtL?s=cl&p=i&ilr=1 
+Instagram  — https://www.instagram.com/cricket_club_iiserk/  
+  
+Official Mail  — mailto:cricket.activity@iiserkol.ac.in
 
 
 ![Image](page1_img1.webp)

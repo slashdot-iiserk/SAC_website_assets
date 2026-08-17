@@ -7,8 +7,10 @@ Club Name: ACIK-Athletics Club Of IISER Kolkata
 
 ACIK actively engages in a wide range of track and field events, including sprints (100m, 200m, 400m), middle and long-distance races (800m to 10000m), as well as field events such as shot put, discus throw, javelin throw, long jump, triple jump, and relays.
 
+Introducing Archery in the tenure 2026-27.
 
-We proudly represent IISER Kolkata in major competitions such as **Pratap (Inter-College Athletics Meet)**, **Open Athletics Meets**, and **IISM (Inter IISER-NISER-CEBS Sports Meet)**. Alongside these, we organize internal competitions like **Inter-Batch Meets**, Freshers encouraging participation and healthy competition within the campus.
+
+We proudly represent IISER Kolkata in major competitions such as **Pratap (Inter-College Sports Meet)**, **Open Athletics Meets**, and **IISM (Inter IISER-NISER-CEBS Sports Meet)**. Alongside these, we organize internal competitions like **Inter-Batch Meets**, Freshers encouraging participation and healthy competition within the campus.
 
 
 Current Office bearers:
@@ -29,14 +31,20 @@ Website Link For our club:
 https://acikathletics.vercel.app
 
 
-Website Link for Pratap Athlete Meet:
+Website Link for Pratap Sports Meet:
 
-https://ais-pre-2xxglzhulwsymrmoeduqje-119765740467.asia-southeast1.run.app/ye
+Work in progress….
 
 
 Instagram link:
 
+ATHLETICS CLUB:
+
 https://www.instagram.com/athletics.iiserk?igsh=aGhkanhia2NlbHV1
+
+PRATAP:
+
+https://www.instagram.com/pratap.iiserk?igsh=cGc4c2J2Ymw1OXMw
 
 
 YouTube link:

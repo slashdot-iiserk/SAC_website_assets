@@ -4,14 +4,14 @@ Name: Fazil M Inamdar
 
 Designation: Office Bearer
 
-Bio: “Always be curious and keep looking up.”
+Bio: “Keep looking up.”
 
-Contact: fmai25ms237@iiserkol.ac.in
+Contact: fazilinamdarh@gmail.com
 
 +91-9449931761
 
 Picture:
 
 
-![Image 1](img_001.webp)
 
+![Image 1](img_001.webp)

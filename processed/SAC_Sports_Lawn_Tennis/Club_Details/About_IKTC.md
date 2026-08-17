@@ -53,12 +53,7 @@ FURTHER IMPROVEMENTS:
 
 Lookout for a coach for teaching the beginners and improving the advanced players
 
-Active practice sessions for players who want to take IISM seriously
-
 A new court is underway!!!
-
-Proper drainage system for the existing court
-
 
 
 Link for whatsapp group:

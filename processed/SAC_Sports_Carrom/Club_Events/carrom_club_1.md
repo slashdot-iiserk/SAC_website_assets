@@ -1,47 +1,44 @@
 # Carrom Club 1
 
-## Page 1
+CCIK(Carrom Club of IISER Kolkata)
 
-CCIK(Carrom Club of IISER Kolkata) 
- 
-INTRODUCTION: 
-The Carrom Club of IISER Kolkata is a student-run club that brings together carrom 
-enthusiasts across the campus. It provides a plaƞorm for students to learn, pracƟce, and 
-compete in the game while promoƟng sportsmanship, strategic thinking, and community 
-engagement through regular sessions and tournaments. 
- 
-OBJECTIVE: 
-1)To promote and popularize the game of carrom among the IISER Kolkata community. 
-2)To provide a plaƞorm for students to learn, pracƟce, and improve their skills. 
-3)To organize friendly matches, tournaments, and other carrom-related events. 
-4)To encourage sportsmanship, strategic thinking, and healthy compeƟƟon. 
-5)To foster social interacƟon and recreaƟon among students through the sport. 
-6)To represents IISER Kolkata and bring laurels to the insƟtute through outstanding 
-performance in IISM and other compeƟƟon. 
- 
- 
-MAJOR ACTIVITIES: 
-1) Freshers' Carrom Tournament –To introduce new students to the club and encourage 
-parƟcipaƟon in the sport. 
-2) IISM SelecƟon Trials and PracƟce Sessions –SelecƟon of insƟtute representaƟves and 
-intensive training for the Inter IISER Sports Meet (IISM). 
-3) Inter-Batch Carrom Tournament –A compeƟƟve event aimed at fostering interacƟon and 
-healthy compeƟƟon among diﬀerent batches. 
-4) Strike Carrom Tournament –A club-level tournament designed to enhance compeƟƟve 
-skills and engagement among members. 
-5) Carrom AucƟon Tournament –An innovaƟve tournament format involving player 
-aucƟons, promoƟng teamwork, strategy, and club-wide parƟcipaƟon. 
- 
- 
-ACHIVEMENTS: 
-1. The IISER Kolkata Carrom Team secured a Bronze Medal at the Inter IISER Sports Meet 
-(IISM-2025), demonstraƟng remarkable determinaƟon and resilience despite facing 
-several challenges during compeƟƟon.
 
-## Page 2
+Playing Facilities:
 
-2. The club successfully organized and conducted mulƟple events throughout the year, 
-including: Inter-Batch Carrom Tournament, AucƟon Tournament, Strike Tournament, 
-Freshers' Tournament etc. 
-3. Through these acƟviƟes, the club signiﬁcantly increased student parƟcipaƟon and 
-fostered a compeƟƟve yet inclusive sporƟng culture on campus.
+➢Room 105 – Practice Area
+
+During official practice sessions, tournaments, or club events, priority shall be given to scheduled activities.
+
+The practice room key must be returned after having practice sessions without delay.
+
+Equipment Usage
+
+Members borrowing equipment(coins and powders) must ensure that it is returned immediately after use and in good condition.
+
+Any damaged or missing equipment must be reported to the Club Office Bearers without delay.
+
+Club equipment shall not be taken outside the designated playing areas without prior permission.
+
+Repeated negligence or misuse of club equipment may lead to suspension of equipment borrowing privileges
+
+General guidelines
+
+Player should be responsible for lost or damage of equipment.
+
+Food, beverages (except water), and chewing gum are not permitted inside the carrom the carrom.
+
+Player leaving at last must ensured lights, fans, AC should be switched off and room is locked.
+
+Player leaving at last must ensured lights, fans, AC should be switched off and room is locked.
+
+Tournament Rules:
+
+All rules will be followed as per the All India Carrom Federation , with minor changes mentioned below (Reference:http://.https://www.indiancarrom.co.in/laws-of-carrom/) .
+
+The decisions of the match officials regarding scheduling, rule interpretation, and match results shall be final .
+
+Violation and Disciplinary Action:
+
+Any disruptive or unsafe behaviour may invite disciplinary action.
+
+Members found using club equipment irresponsibly may be restricted from borrowing equipment and repeating same shall lead to suspension from club.

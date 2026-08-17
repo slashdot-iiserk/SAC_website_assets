@@ -119,6 +119,7 @@ CLUB_NAMES = {
     "Slashdot_Programming_Club": "Slashdot - Programming Club",
     "SPICMACAY": "SPICMACAY",
     "Slashdot_Programming_Club": "Slashdot — Coding & Design Club",
+    "SAC_Food_and_Hygiene": "SAC Food and Hygiene",
 }
 
 CLUB_TAGS = {
@@ -141,7 +142,15 @@ CLUB_TAGS = {
     "SAC_Academics": ["academics", "academic-committee"],
     "SAC_Hostel": ["hostel", "wing-representative", "sub-committee", "residential"],
     # SAC Sports clubs (added 2026-07)
-    "SAC_Sports": ["sports", "gym", "badminton", "basketball", "chess", "kabaddi", "self-defence"],
+    "SAC_Sports": [
+        "sports",
+        "gym",
+        "badminton",
+        "basketball",
+        "chess",
+        "kabaddi",
+        "self-defence",
+    ],
     "SAC_Sports_Badminton": ["sports", "badminton"],
     "SAC_Sports_Basketball": ["sports", "basketball"],
     "SAC_Sports_Chess": ["sports", "chess", "carrom"],
@@ -161,7 +170,14 @@ CLUB_TAGS = {
     "Singularity_Astro_Club": ["academics", "astronomy", "science"],
     "Slashdot_Programming_Club": ["academics", "programming", "coding"],
     "SPICMACAY": ["cultural", "classical", "music", "heritage"],
-    "Slashdot_Programming_Club": ["academics", "programming", "coding", "design", "slashdot"],
+    "Slashdot_Programming_Club": [
+        "academics",
+        "programming",
+        "coding",
+        "design",
+        "slashdot",
+    ],
+    "SAC_Food_and_Hygiene": ["hygiene", "food", "mess", "medical", "smc"],
 }
 
 CATEGORY_LABEL = {
@@ -260,6 +276,46 @@ CATEGORY_LABEL = {
     "interbatch": "Interbatch event",
     "music_quiz": "Music Quiz event",
     "tri-quizard": "Tri-Wizard — Quiz event",
+    # 2026-08 new-data categories (sports events)
+    "Fresher_s_2025": "Freshers' event (2025)",
+    "IISM_2024": "IISM inter-IISER sports meet (2024)",
+    "IISM_2025": "IISM inter-IISER sports meet (2025)",
+    "INTERBATCH_2026": "Interbatch tournament (2026)",
+    "Interbatch_2025": "Interbatch tournament (2025)",
+    "Interbatch_2026": "Interbatch tournament (2026)",
+    "Auction_tournament": "Auction tournament",
+    "Farewell": "Farewell event",
+    "FAREWELL": "Farewell event",
+    "Boys__Freshers": "Boys' freshers' match",
+    "Girls__freshers": "Girls' freshers' match",
+    "Match_streamings": "Match streaming / highlights",
+    "Test_match": "Test match",
+    "practice_sessions": "Practice session",
+    "Practice_Matches": "Practice matches",
+    "Tug_of_War_photos": "Tug of War event",
+    "21MS_farewell": "Farewell event (21 MS batch)",
+    "GYM_photos": "GYM club photos",
+    "self-defence": "Self-defence workshop",
+    "yoga": "Yoga session",
+    "Gallery": "Gallery",
+    "IISM_-_NISER": "IISM vs NISER match",
+    "Interbatch_Tournament": "Interbatch tournament",
+    "Freshers_match": "Freshers' match",
+    "21ms_Farewell": "Farewell event (21 MS batch)",
+    "IISERK_tennis_pictures": "IISERK tennis photos",
+    "IISM_pictures": "IISM tennis photos",
+    "Fresher_s_Match": "Freshers' match",
+    "AUCTION_TOURNAMENT": "Auction tournament",
+    "INTER-BATCH_TOURNAMENT": "Inter-batch tournament",
+    "Club_Events": "Club events",
+    "Club_Details": "Club details document",
+    "Events_and_Activities": "Events and activities",
+    "Events_and_activities": "Events and activities",
+    "Photos_and_Media": "Photos and media",
+    "Photos_and_Medias": "Photos and media",
+    "Office_Bearers": "Office-bearers",
+    "Members": "Club members",
+    "Members_": "Club members",
 }
 
 ROLES_KW = {
@@ -336,6 +392,13 @@ EXT_MIME = {
     "html": "text/html",
     "htm": "text/html",
     "zip": "application/zip",
+    "mp4": "video/mp4",
+    "mov": "video/quicktime",
+    "m4v": "video/x-m4v",
+    "webm": "video/webm",
+    "m4a": "audio/mp4",
+    "wav": "audio/wav",
+    "mp3": "audio/mpeg",
 }
 
 ABSOLUTE_PATH_PREFIX = "public/assets/processed"
@@ -358,6 +421,10 @@ def file_type_of(ext: str) -> str:
         return "spreadsheet"
     if ext in {"html", "htm"}:
         return "html"
+    if ext in {"mp4", "mov", "m4v", "webm", "avi", "mkv"}:
+        return "video"
+    if ext in {"m4a", "wav", "mp3", "ogg", "flac", "aac"}:
+        return "audio"
     return ext or "other"
 
 
@@ -445,7 +512,7 @@ def split_ob_filename(fname: str) -> tuple[str, str | None, str | None]:
         name = stripped
         for prefix in ("IKQC-", "IKQC_"):
             if name.startswith(prefix):
-                name = name[len(prefix):]
+                name = name[len(prefix) :]
                 break
         return clean_token(name), None, marker
 
@@ -533,6 +600,40 @@ def first_markdown_heading(path: Path) -> tuple[str | None, str | None]:
 # ----------------------------------------------------------------------------
 # Classification & description
 # ----------------------------------------------------------------------------
+# Event-named folder categories that do not contain the literal word "event"
+# (2026-08 new data: sports tournaments, freshers, farewells, workshops…).
+# Images under these categories are flagged is_event so the events page
+# surfaces them.
+EVENT_CATEGORY_KEYWORDS = (
+    "fresher",
+    "iism",
+    "interbatch",
+    "inter_batch",
+    "auction",
+    "farewell",
+    "tug",
+    "match",
+    "tournament",
+    "practice",
+    "workshop",
+    "garba",
+    "jhankaar",
+    "rampage",
+    "ecotrail",
+    "field_trip",
+    "field_trip",
+    "yoga",
+    "gallery",
+    "screenings",
+    "interbatch",
+)
+
+
+def _is_event_category(category: str) -> bool:
+    cat = category.lower().replace(" ", "_")
+    return any(kw in cat for kw in EVENT_CATEGORY_KEYWORDS)
+
+
 def classify_and_describe(
     rel_parts: list[str],
     fname: str,
@@ -624,6 +725,15 @@ def classify_and_describe(
     elif ftype in {"document", "pdf", "spreadsheet"}:
         role = "source-document"
         description = f"Source document ({ftype}) — {clean_token(fname)}."
+    elif ftype == "video":
+        # Videos are preserved in the map for completeness but are NOT
+        # event/iicm flagged: pages/events.js renders those as <img> tags,
+        # which would break on video files.
+        role = "video"
+        description = f"Video clip — {clean_token(fname)}."
+    elif ftype == "audio":
+        role = "audio"
+        description = f"Audio clip — {clean_token(fname)}."
     else:
         if cat_lower.endswith("_images") or "_images" in cat_lower:
             flags["is_extracted_from_doc"] = True
@@ -680,7 +790,7 @@ def classify_and_describe(
                     description = f"IICM {yyyy} achievement / competition photograph — {clean_token(fname)}."
                 else:
                     description = f"IICM (Inter-IISER Cultural Meet) photograph — {clean_token(fname)}."
-            elif "event" in cat_lower:
+            elif "event" in cat_lower or _is_event_category(category):
                 flags["is_event"] = True
                 role = "event"
                 description = f"Event photograph — {clean_token(fname)}."
