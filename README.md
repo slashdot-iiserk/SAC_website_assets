@@ -22,7 +22,8 @@ SAC_website_assets/
 │   │   ├── *.md                 # Parsed markdown (OBs, events, achievements)
 │   │   ├── *.webp               # Compressed images (q85, max 2400px)
 │   │   └── *_images/            # Extracted images from DOCX/PDF
-│   └── assets_map.jsonl         # Master index (382 entries)
+│   ├── assets_map.jsonl         # Master index (1393 entries)
+│   └── source_manifest.jsonl    # Source-to-output accounting ledger (1033 rows)
 │
 ├── tools/                        # Python processing pipeline
 │   ├── pyproject.toml           # UV project (Python 3.12)
@@ -51,7 +52,9 @@ SAC_website_assets/
 | Nrutya - Dance      | 91     | 1        | IICM 2023-25, detailed OBs     |
 | PIXEL - Photo       | 39     | 4        | Equipment, portfolios          |
 
-**Total:** 367 images, 15 markdown files, 104 extracted images from documents
+The current rebuild contains 1,099 WebP images, 185 Markdown documents,
+101 compressed MP4 videos, 7 audio files, and 1 preserved JSON source record.
+The source-to-output ledger accounts for all 1,033 files in `SAC Website details`.
 
 ## Data Format
 
@@ -68,7 +71,7 @@ Each club markdown contains:
 
 ### Images
 
-- Format: WebP (quality 85, max 2400px)
+- Format: WebP (quality 85, max 2400px), including HEIC and ARW camera sources
 - Names: Linux-friendly (underscores, no spaces)
 - Structure: `club/category/filename.webp`
 
@@ -89,8 +92,8 @@ Each club markdown contains:
 
 ## Adding New Assets
 
-1. Extract new zip to `assets/` folder
-2. Run `cd tools && ./run.sh ../assets`
+1. Extract the new dump to `SAC Website details/`
+2. Run `cd public/assets/tools && uv run python rebuild_assets.py "/path/to/SAC Website details" -o ../processed`
 3. New files appear in `processed/`
 4. Push to this repository
 

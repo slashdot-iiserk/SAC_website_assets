@@ -19,5 +19,5 @@ Email: us24ms137@iiserkol.ac.in
 (v) Photograph
 
 
-![Image 1](img_001.webp)
+![Image 1](UTKARSH_SHANTANU_images/img_001.webp)
 

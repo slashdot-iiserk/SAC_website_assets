@@ -1,4 +1,4 @@
-# Office Bearers Ob
+# Office Bearers(Ob)
 
 ## Page 1
 
@@ -27,28 +27,28 @@ Contact Details :
 bh24ms149@iiserkol.ac.in
 
 
-![Image](page1_img1.webp)
+![Image](Office_Bearers_OB_images/page1_img1.webp)
 
 
-![Image](page1_img2.webp)
+![Image](Office_Bearers_OB_images/page1_img2.webp)
 
 
-![Image](page1_img3.webp)
+![Image](Office_Bearers_OB_images/page1_img3.webp)
 
 
-![Image](page1_img4.webp)
+![Image](Office_Bearers_OB_images/page1_img4.webp)
 
 
-![Image](page1_img5.webp)
+![Image](Office_Bearers_OB_images/page1_img5.webp)
 
 
-![Image](page1_img6.webp)
+![Image](Office_Bearers_OB_images/page1_img6.webp)
 
 
-![Image](page1_img7.webp)
+![Image](Office_Bearers_OB_images/page1_img7.webp)
 
 
-![Image](page1_img8.webp)
+![Image](Office_Bearers_OB_images/page1_img8.webp)
 
 ## Page 2
 
@@ -75,25 +75,25 @@ Contact Details :
 jap25ms199@iiserkol.ac.in
 
 
-![Image](page2_img1.webp)
+![Image](Office_Bearers_OB_images/page2_img1.webp)
 
 
-![Image](page2_img2.webp)
+![Image](Office_Bearers_OB_images/page2_img2.webp)
 
 
-![Image](page2_img3.webp)
+![Image](Office_Bearers_OB_images/page2_img3.webp)
 
 
-![Image](page2_img4.webp)
+![Image](Office_Bearers_OB_images/page2_img4.webp)
 
 
-![Image](page2_img5.webp)
+![Image](Office_Bearers_OB_images/page2_img5.webp)
 
 
-![Image](page2_img6.webp)
+![Image](Office_Bearers_OB_images/page2_img6.webp)
 
 
-![Image](page2_img7.webp)
+![Image](Office_Bearers_OB_images/page2_img7.webp)
 
 
-![Image](page2_img8.webp)
+![Image](Office_Bearers_OB_images/page2_img8.webp)

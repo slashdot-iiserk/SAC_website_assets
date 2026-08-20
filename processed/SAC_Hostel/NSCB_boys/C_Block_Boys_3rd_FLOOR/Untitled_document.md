@@ -16,4 +16,4 @@ Phone: +91-7978840286
 Email: rb23ms181@iiserkol.ac.in
 
 
-![Image 1](img_001.webp)
+![Image 1](Untitled_document_images/img_001.webp)

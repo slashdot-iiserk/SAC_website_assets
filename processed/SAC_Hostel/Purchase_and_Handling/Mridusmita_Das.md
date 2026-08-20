@@ -15,5 +15,5 @@ I enjoy reading, writing and exploring new places.
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Mridusmita_Das_images/img_001.webp)
 

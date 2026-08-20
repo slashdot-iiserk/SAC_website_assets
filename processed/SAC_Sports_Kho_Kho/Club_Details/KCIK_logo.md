@@ -1,4 +1,4 @@
 # Kcik Logo
 
 
-![Image](page1_img1.webp)
+![Image](KCIK_logo_images/page1_img1.webp)

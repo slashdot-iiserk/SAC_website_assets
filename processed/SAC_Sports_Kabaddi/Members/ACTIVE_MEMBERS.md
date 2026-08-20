@@ -8,7 +8,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 1](img_001.webp)
+![Image 1](ACTIVE_MEMBERS_images/img_001.webp)
 
 
 2)Aditi Bhuyan
@@ -16,7 +16,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 2](img_002.webp)
+![Image 2](ACTIVE_MEMBERS_images/img_002.webp)
 
 
 3)Nikku Repswal
@@ -24,7 +24,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 3](img_003.webp)
+![Image 3](ACTIVE_MEMBERS_images/img_003.webp)
 
 
 4)Krish Kumar
@@ -32,13 +32,13 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 4](img_004.webp)
+![Image 4](ACTIVE_MEMBERS_images/img_004.webp)
 
 
 5) Siba Prasad Behera
 
 
-![23MS](img_005.webp)
+![23MS](ACTIVE_MEMBERS_images/img_005.webp)
 
 
 6)Arvind Mohan
@@ -46,7 +46,7 @@ ACTIVE PLAYERS OF OUR CLUB
 23MS
 
 
-![Image 6](img_006.webp)
+![Image 6](ACTIVE_MEMBERS_images/img_006.webp)
 
 
 7)Avipsa Das
@@ -54,7 +54,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 7](img_007.webp)
+![Image 7](ACTIVE_MEMBERS_images/img_007.webp)
 
 
 8)Pallavi Sabar
@@ -62,7 +62,7 @@ ACTIVE PLAYERS OF OUR CLUB
 (22MS)
 
 
-![Image 8](img_008.webp)
+![Image 8](ACTIVE_MEMBERS_images/img_008.webp)
 
 
 9)Kumar Rishank
@@ -70,7 +70,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 9](img_009.webp)
+![Image 9](ACTIVE_MEMBERS_images/img_009.webp)
 
 
 10)Abhishek Aditya
@@ -78,7 +78,7 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 10](img_010.webp)
+![Image 10](ACTIVE_MEMBERS_images/img_010.webp)
 
 
 11) Rahul Beniwal
@@ -86,33 +86,33 @@ ACTIVE PLAYERS OF OUR CLUB
 25MS
 
 
-![Image 11](img_011.webp)
+![Image 11](ACTIVE_MEMBERS_images/img_011.webp)
 
 
 12)Sandipta Adhikary
 
 
-![25MS](img_012.webp)
+![25MS](ACTIVE_MEMBERS_images/img_012.webp)
 
 
 
-![13)Banoth Harshitha](img_013.webp)
+![13)Banoth Harshitha](ACTIVE_MEMBERS_images/img_013.webp)
 
 
 
-![14)Swarali Shingne](img_014.webp)
+![14)Swarali Shingne](ACTIVE_MEMBERS_images/img_014.webp)
 
 
 15) Subarna Sultana
 
 
-![25MS](img_015.webp)
+![25MS](ACTIVE_MEMBERS_images/img_015.webp)
 
 
 16)Mirza Mohammed Hasnain Baig
 
 
-![22MS](img_016.webp)
+![22MS](ACTIVE_MEMBERS_images/img_016.webp)
 
 
 17)Lipsa Rani Senapati
@@ -121,13 +121,13 @@ ACTIVE PLAYERS OF OUR CLUB
 
 
 
-![Image 17](img_017.webp)
+![Image 17](ACTIVE_MEMBERS_images/img_017.webp)
 
 
 
 
 
-![18)Deepjay Sarkar(24MS)](img_018.webp)
+![18)Deepjay Sarkar(24MS)](ACTIVE_MEMBERS_images/img_018.webp)
 
 19)Himanshu Mech(24MS)
 

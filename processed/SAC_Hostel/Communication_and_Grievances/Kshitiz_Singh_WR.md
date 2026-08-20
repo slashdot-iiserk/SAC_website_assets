@@ -10,4 +10,4 @@ Short Bio: I am a Fourth year BS-MS student majoring in Earth Sciences. Committe
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Kshitiz_Singh_WR_images/img_001.webp)

@@ -1,4 +1,4 @@
-# Sneha Biswas
+# Sneha Biswas 
 
 NAME: Sneha Biswas
 
@@ -17,4 +17,4 @@ Mob- 7980852635
 Email: sb25ms023@iiserkol.ac.in
 
 
-![Image 1](img_001.webp)
+![Image 1](Sneha_Biswas_images/img_001.webp)

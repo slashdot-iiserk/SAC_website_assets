@@ -14,7 +14,8 @@ SAC_website_assets/
 │   ├── <Club_Slug>/                 # One dir per club (slug = site contract)
 │   │   ├── <Category>/…             # *.webp images, *.md documents, *.mp4 videos, *.m4a/*.wav audio
 │   │   └── <Doc>_images/            # Images extracted from DOCX/PDF (WebP)
-│   └── assets_map.jsonl             # Master index (1387 entries as of 2026-08)
+│   ├── assets_map.jsonl             # Master index (1393 entries as of 2026-08)
+│   └── source_manifest.jsonl        # 1:1 source accounting ledger (1033 rows)
 │
 ├── tools/                           # Python processing tools (uv venv: .venv)
 │   ├── rebuild_assets.py            # v2 pipeline: stage → rename → WebP → docs → videos → map
@@ -39,19 +40,20 @@ SAC_website_assets/
    Slug map routes: `SAC Cultural/<Club>` → `<Club_Slug>`, `SAC Sports/<Sport>` → `SAC_Sports_<Sport>`,
    `SAC Hostel/*` → `SAC_Hostel`, `SAC Academics/*` → `SAC_Academics`/`Singularity_Astro_Club`/
    `Placement_Cell`, `SAC Food and Hygine` → `SAC_Food_and_Hygiene`.
-2. **Images**: every image (jpg/jpeg/png/heic/webp) → WebP (quality 85, max 2400px).
-   HEIC handled via ImageMagick. ARW (Sony raw) and Jupyter `.ipynb`/worksheet files are excluded.
+2. **Images**: every image (jpg/jpeg/png/heic/webp/arw) → WebP (quality 85, max 2400px).
+   HEIC uses ImageMagick and Sony ARW uses rawpy. No source duplicate is silently dropped.
 3. **Smart renaming**: generic names (`WhatsApp Image…`, `IMG_…`, `PXL_…`, `VID_…`, `Board 1.x`)
    are renamed with the event-folder context, e.g. `Field_Trip_01.webp`, `Fresher_s_2025_Board_1_3.jpg`.
-   `Copy of X` exact duplicates are dropped.
-4. **Docs**: DOCX/PDF/HTML/XLSX → Markdown (tables preserved). Raw sources removed after parse.
+   `Copy of X` is normalized but retained; collisions receive stable suffixes.
+4. **Docs**: DOCX/PDF/HTML/XLSX → Markdown (tables preserved). Raw sources are removed only after a successful parse.
+   Extracted image references point to their document-specific `_images/` directory.
 5. **Videos**: compressed to H.264 mp4 (720p, CRF 30, AAC 128k) so every clip stays under
    GitHub's 100 MB hard limit (one 64 MB file remains, others < 20 MB).
 6. **Audio**: kept as-is (`m4a`/`wav`).
 7. **Map roles**: `office-bearer`, `logo`, `event` (folder-name driven: freshers/iism/interbatch/
    auction/farewell/tug/practice/workshops…), `iicm-achievement`, `equipment`, `portfolio`,
    `outer-fest`, `club-document`, `extracted-image`, `video`, `audio`, `other`.
-   Videos are NEVER `is_event`/`is_iicm` (events page renders `<img>` only).
+   Videos remain `role: video` and are rendered with native `<video>` controls by the website.
 8. **Clubs with no new data** (Slashdot as of 2026-08) are carried over from the previous build.
 
 ---
@@ -60,13 +62,14 @@ SAC_website_assets/
 
 | File type | Count | Notes |
 | --------- | ----- | ----- |
-| image (webp) | 1050 | incl. extracted images |
-| markdown | 186 | club docs, OB bios, event writeups |
+| image (webp) | 1099 | incl. extracted images and the ARW conversion |
+| markdown | 185 | club docs, OB bios, event writeups, spreadsheets |
 | video (mp4) | 101 | compressed H.264 |
-| audio | 6 | Nrutya performance clips |
-| **total** | **1387** | ~467 MB (raw source was ~3.8 GB) |
+| audio | 7 | Nrutya performance clips |
+| json | 1 | preserved source worksheet |
+| **total** | **1393** | ~520 MB (raw source was ~3.8 GB) |
 
-Clubs: 31 slugs, matching the website's `getClubPageUrl` map exactly.
+Clubs: 32 indexed slugs (including the preserved legacy Slashdot archive and the food/hygiene record); the website has dedicated pages for the published club/committee slugs.
 
 ---
 
@@ -74,7 +77,7 @@ Clubs: 31 slugs, matching the website's `getClubPageUrl` map exactly.
 
 ```bash
 cd tools
-PYTHONPATH= .venv/bin/python rebuild_assets.py \
+uv run python rebuild_assets.py \
   "/path/to/SAC Website details" -o ../processed
 ```
 

@@ -1,4 +1,4 @@
-# Acik Budget 2026 2027
+# Acik Budget (2026 2027)
 
 ## Page 1
 
@@ -81,22 +81,22 @@ Total (Rs.)
 67,000
 
 
-![Image](page1_img1.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img1.webp)
 
 
-![Image](page1_img2.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img2.webp)
 
 
-![Image](page1_img3.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img3.webp)
 
 
-![Image](page1_img4.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img4.webp)
 
 
-![Image](page1_img5.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img5.webp)
 
 
-![Image](page1_img6.webp)
+![Image](ACIK_Budget_2026_2027_images/page1_img6.webp)
 
 ## Page 2
 
@@ -178,22 +178,22 @@ https://amzn.in/d
 /087uXZEL​
 
 
-![Image](page2_img1.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img1.webp)
 
 
-![Image](page2_img2.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img2.webp)
 
 
-![Image](page2_img3.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img3.webp)
 
 
-![Image](page2_img4.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img4.webp)
 
 
-![Image](page2_img5.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img5.webp)
 
 
-![Image](page2_img6.webp)
+![Image](ACIK_Budget_2026_2027_images/page2_img6.webp)
 
 ## Page 3
 
@@ -286,34 +286,34 @@ https://amzn.in/d
 /09NMWon7​
 
 
-![Image](page3_img1.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img1.webp)
 
 
-![Image](page3_img2.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img2.webp)
 
 
-![Image](page3_img3.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img3.webp)
 
 
-![Image](page3_img4.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img4.webp)
 
 
-![Image](page3_img5.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img5.webp)
 
 
-![Image](page3_img6.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img6.webp)
 
 
-![Image](page3_img7.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img7.webp)
 
 
-![Image](page3_img8.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img8.webp)
 
 
-![Image](page3_img9.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img9.webp)
 
 
-![Image](page3_img10.webp)
+![Image](ACIK_Budget_2026_2027_images/page3_img10.webp)
 
 ## Page 4
 
@@ -432,19 +432,19 @@ Total (Rs.)
 ** Shipping charge is included.
 
 
-![Image](page4_img1.webp)
+![Image](ACIK_Budget_2026_2027_images/page4_img1.webp)
 
 
-![Image](page4_img2.webp)
+![Image](ACIK_Budget_2026_2027_images/page4_img2.webp)
 
 
-![Image](page4_img3.webp)
+![Image](ACIK_Budget_2026_2027_images/page4_img3.webp)
 
 
-![Image](page4_img4.webp)
+![Image](ACIK_Budget_2026_2027_images/page4_img4.webp)
 
 
-![Image](page4_img5.webp)
+![Image](ACIK_Budget_2026_2027_images/page4_img5.webp)
 
 ## Page 5
 
@@ -536,7 +536,7 @@ Pedestal = Rs. 3,000
 Safety Fencing = Rs. 1,500
 
 
-![Image](page6_img1.webp)
+![Image](ACIK_Budget_2026_2027_images/page6_img1.webp)
 
 ## Page 7
 

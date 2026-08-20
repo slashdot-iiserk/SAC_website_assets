@@ -36,7 +36,7 @@ Event Organiser
 1
 
 
-![Image](page1_img1.webp)
+![Image](Pixel_Data_PDF_images/page1_img1.webp)
 
 ## Page 2
 
@@ -128,7 +128,7 @@ and shout-outs on the club’s social media platforms. “‘
 2
 
 
-![Image](page2_img1.webp)
+![Image](Pixel_Data_PDF_images/page2_img1.webp)
 
 ## Page 3
 
@@ -172,7 +172,7 @@ in suspension of borrowing privileges.
 3
 
 
-![Image](page3_img1.webp)
+![Image](Pixel_Data_PDF_images/page3_img1.webp)
 
 ## Page 4
 
@@ -214,4 +214,4 @@ mailto:photography.activity@iiserkol.ac.in
 4
 
 
-![Image](page4_img1.webp)
+![Image](Pixel_Data_PDF_images/page4_img1.webp)

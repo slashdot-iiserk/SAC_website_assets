@@ -16,4 +16,4 @@ Phone No: 7637910384
 
 
 
-![Image 1](img_001.webp)
+![Image 1](JD_images/img_001.webp)

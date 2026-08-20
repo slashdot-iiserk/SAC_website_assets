@@ -6,7 +6,7 @@ slug: "about"
 
 # About Us
 
-![Slashdot — The Coding & Designing Club of IISER Kolkata](../images/branding/slashdot-logo-banner.webp)
+![Slashdot — The Coding & Designing Club of IISER Kolkata](../Logo/slashdot_logo.webp)
 
 - **Founded:** Conceptualized in 2019, officially formed on January 8th, 2021.
 - **Initiated By:** Dedicated members from the 16MS, 17MS, 18MS, and 19MS batches.

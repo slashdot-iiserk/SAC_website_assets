@@ -14,4 +14,4 @@ Picture:
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Fazil_M_Inamdar_images/img_001.webp)

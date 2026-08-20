@@ -1,4 +1,4 @@
-# Banishree Mohanta
+# Banishree Mohanta 
 
 Name - Banishree Mohanta (25MS217)
 
@@ -17,5 +17,5 @@ email id - bm25ms217@iiserkol.ac.in
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Banishree_Mohanta_images/img_001.webp)
 

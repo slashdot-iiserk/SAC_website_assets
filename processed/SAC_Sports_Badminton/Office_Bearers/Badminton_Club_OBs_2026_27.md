@@ -1,4 +1,4 @@
-# Badminton Club Obs 2026 27
+# Badminton Club Obs (2026 27)
 
 Badminton Club OBs (2026-27)
 

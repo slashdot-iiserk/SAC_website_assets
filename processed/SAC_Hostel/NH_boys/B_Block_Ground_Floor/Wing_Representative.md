@@ -20,4 +20,4 @@ needed. I like to maintain a positive and lively environment in the wing and wou
 contribute as a responsible and cooperative Wing Representative.
 
 
-![Image](page1_img1.webp)
+![Image](Wing_Representative_images/page1_img1.webp)

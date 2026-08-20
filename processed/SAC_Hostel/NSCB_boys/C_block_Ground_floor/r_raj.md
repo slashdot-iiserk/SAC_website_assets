@@ -15,4 +15,4 @@ Additionally, I served as the Secretary of the Volleyball Club from 2024 to 2025
 • Email: - rr23ms222@iiserkol.ac.in
 
 
-![Image](page2_img1.webp)
+![Image](r_raj_images/page2_img1.webp)

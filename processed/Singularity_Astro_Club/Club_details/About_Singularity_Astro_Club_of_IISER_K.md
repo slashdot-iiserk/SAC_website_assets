@@ -2,10 +2,10 @@
 
 
 
-![Image 1](img_001.webp)
+![Image 1](About_Singularity_Astro_Club_of_IISER_K_images/img_001.webp)
 
 
-![Image 2](img_002.webp)
+![Image 2](About_Singularity_Astro_Club_of_IISER_K_images/img_002.webp)
 
 Singularity — The Astronomy Club of IISER Kolkata
 
@@ -34,14 +34,14 @@ Further, we have founded the  ISAAC(Indian Synergy of Astronomy and Astrophysics
 
 
 
-![Image 3](img_003.webp)
+![Image 3](About_Singularity_Astro_Club_of_IISER_K_images/img_003.webp)
 
 
-![Image 4](img_004.webp)
+![Image 4](About_Singularity_Astro_Club_of_IISER_K_images/img_004.webp)
 
 
-![Image 5](img_005.webp)
+![Image 5](About_Singularity_Astro_Club_of_IISER_K_images/img_005.webp)
 
 
-![Image 6](img_006.webp)
+![Image 6](About_Singularity_Astro_Club_of_IISER_K_images/img_006.webp)
 

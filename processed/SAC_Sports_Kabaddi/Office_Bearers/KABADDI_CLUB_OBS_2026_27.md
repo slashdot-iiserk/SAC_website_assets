@@ -10,7 +10,7 @@ CONTACT-+91 89360 51800
 EMAIL- ak25ms286@iiserkol.ac.in
 
 
-![Image 1](img_001.webp)
+![Image 1](KABADDI_CLUB_OBS_2026_27_images/img_001.webp)
 
 
 
@@ -22,7 +22,7 @@ CONTACT -+91 83298 90468
 EMAIL- sn25ms324@iiserkol.ac.in
 
 
-![Image 2](img_002.webp)
+![Image 2](KABADDI_CLUB_OBS_2026_27_images/img_002.webp)
 
 
 
@@ -33,7 +33,7 @@ CONTACT-+91 73108 25186
 EMAIL- sa25ms204@iiserkol.ac.in
 
 
-![Image 3](img_003.webp)
+![Image 3](KABADDI_CLUB_OBS_2026_27_images/img_003.webp)
 
 
 
@@ -44,7 +44,7 @@ CONTACT-+91 96928 79660
 EMAIL- bm25ms217@iiserkol.ac.in
 
 
-![Image 4](img_004.webp)
+![Image 4](KABADDI_CLUB_OBS_2026_27_images/img_004.webp)
 
 
 
@@ -55,4 +55,4 @@ CONTACT-9348013796
 EMAIL- ak25ms327@iiserkol.ac.in
 
 
-![Image 5](img_005.webp)
+![Image 5](KABADDI_CLUB_OBS_2026_27_images/img_005.webp)

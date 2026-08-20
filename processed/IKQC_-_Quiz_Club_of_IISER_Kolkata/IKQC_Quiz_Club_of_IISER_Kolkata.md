@@ -1,4 +1,4 @@
-# Ikqc Quiz Club Of Iiser Kolkata
+# Ikqc   Quiz Club Of Iiser Kolkata
 
 IKQC - Quiz Club of IISER Kolkata
 

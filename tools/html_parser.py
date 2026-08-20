@@ -295,7 +295,8 @@ def html_to_markdown(html_path: Path, output_dir: Path) -> Path:
     # Append image references
     for img_path in images:
         if img_path.exists():
-            md_lines.append(f"\n![{img_path.stem}]({img_path.name})\n")
+            image_ref = img_path.relative_to(output_dir).as_posix()
+            md_lines.append(f"\n![{img_path.stem}]({image_ref})\n")
 
     md_path = output_dir / f"{html_path.stem}.md"
     md_path.write_text("\n".join(md_lines), encoding="utf-8")

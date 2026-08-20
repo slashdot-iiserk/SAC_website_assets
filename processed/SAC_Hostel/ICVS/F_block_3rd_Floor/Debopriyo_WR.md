@@ -37,7 +37,7 @@ Photograph
 2
 
 
-![Image](page2_img1.webp)
+![Image](Debopriyo_WR_images/page2_img1.webp)
 
 
-![Image](page2_img2.webp)
+![Image](Debopriyo_WR_images/page2_img2.webp)

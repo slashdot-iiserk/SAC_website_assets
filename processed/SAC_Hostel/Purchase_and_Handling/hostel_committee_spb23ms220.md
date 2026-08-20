@@ -31,4 +31,4 @@ Instagram - https://acesse.one/5ay6hh5
 Photograph
 
 
-![Image 1](img_001.webp)
+![Image 1](hostel_committee_spb23ms220_images/img_001.webp)

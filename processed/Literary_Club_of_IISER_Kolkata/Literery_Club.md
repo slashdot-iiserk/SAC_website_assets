@@ -1,7 +1,7 @@
 # Literery Club
 
 
-![Image 1](img_001.webp)
+![Image 1](Literery_Club_images/img_001.webp)
 
 INTRODUCTION TO THE LIT
 

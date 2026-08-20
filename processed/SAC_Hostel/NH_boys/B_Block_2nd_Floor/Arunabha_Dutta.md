@@ -1,4 +1,4 @@
-# Arunabha Dutta
+# Arunabha Dutta 
 
 Information of Wing representative
 
@@ -13,4 +13,4 @@ Mobile number: 6291068974
 Email id: ad25ms027@iiserkol.ac.in
 
 
-![Picture:](img_001.webp)
+![Picture:](Arunabha_Dutta_images/img_001.webp)

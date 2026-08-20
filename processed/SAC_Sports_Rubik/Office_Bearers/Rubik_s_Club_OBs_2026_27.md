@@ -1,4 +1,4 @@
-# Rubik S Club Obs 2026 27
+# Rubik’S Club Obs (2026 27)
 
 ## Page 1
 

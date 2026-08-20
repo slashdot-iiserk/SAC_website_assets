@@ -13,4 +13,4 @@ Contact: H. D. Rinsangzela(hdr25ms231@iiserko.ac.in)
 Picture:
 
 
-![Image 1](img_001.webp)
+![Image 1](H.D.Rinsangzela_images/img_001.webp)

@@ -31,4 +31,4 @@ the highest level.
 1
 
 
-![Image](page1_img1.webp)
+![Image](VOLIK_Events_images/page1_img1.webp)

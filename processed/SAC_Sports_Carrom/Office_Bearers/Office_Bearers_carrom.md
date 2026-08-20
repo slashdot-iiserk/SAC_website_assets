@@ -17,7 +17,7 @@ Contact Number : 8101471156​
 ​
 
 
-![Image](page1_img1.webp)
+![Image](Office_Bearers_carrom_images/page1_img1.webp)
 
 ## Page 2
 
@@ -26,7 +26,7 @@ Email : gmn25ms118@iiserkol.ac.in
 Contact Number : 8296138064
 
 
-![Image](page2_img1.webp)
+![Image](Office_Bearers_carrom_images/page2_img1.webp)
 
 ## Page 3
 
@@ -35,4 +35,4 @@ Email : cb25ms097@iiserkol.ac.in
 Contact Number :8509571287
 
 
-![Image](page3_img1.webp)
+![Image](Office_Bearers_carrom_images/page3_img1.webp)

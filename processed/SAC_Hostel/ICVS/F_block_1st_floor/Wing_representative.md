@@ -1,4 +1,4 @@
-# Wing Representative
+# Wing Representative 
 
 Name: Uttam Mandal
 
@@ -12,7 +12,7 @@ Email: um23ms040@iiserkol.ac.in
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Wing_representative_images/img_001.webp)
 
 
-![Image 2](img_002.webp)
+![Image 2](Wing_representative_images/img_002.webp)

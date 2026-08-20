@@ -37,4 +37,4 @@ Gold Medals in Stage Play (Drama) at IICM 2024 and IICM 2025
 (v) Photo:
 
 
-![Image 1](img_001.webp)
+![Image 1](WR_Profile_images/img_001.webp)

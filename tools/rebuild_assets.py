@@ -14,15 +14,17 @@ Design decisions (see plans/working-memory.md):
   - Slug map routes new-data folders -> canonical site slugs
   - Generic filenames (WhatsApp Image/IMG_/PXL_/VID_/Board 1.x) are renamed
     using the event folder context (user-requested)
-  - "Copy of X" duplicates are content-deduped
-  - Jupyter notebook JSON (physics worksheet) is excluded (not club data)
-  - ARW raw file: attempted via rawpy; if unavailable, skipped with a log
+  - Exact duplicates within a destination folder are merged by SHA-256;
+    near-duplicates and cross-club copies remain separate
+  - JSON-like files without an extension are retained with a .json extension
+  - ARW raw files are decoded with rawpy when available
   - Slashdot/SPICMACAY have no new data -> old processed data preserved
 """
 
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -101,6 +103,35 @@ ROOT_MAP = {
 # Clubs with no new data: preserve their old processed/ content
 KEEP_OLD_SLUGS = {"Slashdot_Programming_Club"}
 
+KNOWN_SOURCE_EXTS = {
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".gif",
+    ".bmp",
+    ".tiff",
+    ".tif",
+    ".heic",
+    ".heif",
+    ".arw",
+    ".mp4",
+    ".mov",
+    ".m4v",
+    ".m4a",
+    ".wav",
+    ".mp3",
+    ".docx",
+    ".pdf",
+    ".xlsx",
+    ".html",
+    ".htm",
+    ".txt",
+    ".md",
+    ".json",
+    ".ipynb",
+}
+
 # ---------------------------------------------------------------------------
 # Generic filename patterns -> event-context rename
 # ---------------------------------------------------------------------------
@@ -132,6 +163,14 @@ def md5_of(path: Path) -> str:
     return h.hexdigest()
 
 
+def sha256_of(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def content_sniff_ext(path: Path) -> str | None:
     """Return the real image extension for misnamed files (Board 1.3 etc)."""
     with open(path, "rb") as f:
@@ -142,6 +181,8 @@ def content_sniff_ext(path: Path) -> str | None:
         return "png"
     if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
         return "webp"
+    if head.lstrip().startswith((b"{", b"[")):
+        return "json"
     return None
 
 
@@ -166,39 +207,11 @@ def rename_file(
     name = src.name
     ext = src.suffix.lower()
 
-    # --- explicit exclusions -------------------------------------------------
-    if "Copy of Document from Aranya" in name or name.endswith(".ipynb"):
-        return None, "", False  # Jupyter worksheet, not club data
-    if name.lower().endswith(".arw"):
-        return None, "", False  # Sony raw — cannot convert with current tooling
-
     # --- work out the REAL extension ------------------------------------------
     # Names like "Board 1.3" or "4.00.44 PM (1).jpeg" confuse Path.suffix —
     # always slice the extension manually from the trailing known-extension
     # list; if none matches, sniff image content.
-    known_exts = {
-        ".jpg",
-        ".jpeg",
-        ".png",
-        ".webp",
-        ".gif",
-        ".bmp",
-        ".tiff",
-        ".tif",
-        ".mp4",
-        ".mov",
-        ".m4v",
-        ".m4a",
-        ".wav",
-        ".mp3",
-        ".docx",
-        ".pdf",
-        ".xlsx",
-        ".html",
-        ".htm",
-        ".txt",
-        ".md",
-    }
+    known_exts = KNOWN_SOURCE_EXTS
     final_ext = ext if ext in known_exts else ""
     stem = name[: -len(ext)] if ext and ext in known_exts else name
     real_ext = None
@@ -209,20 +222,15 @@ def rename_file(
             final_ext = f".{sniffed}"
             # Board 1.3 -> stem stays "Board 1.3" (dot is part of the name)
 
-    # --- dedupe "Copy of X" ----------------------------------------------------
+    # --- normalize "Copy of X" without dropping the source --------------------
     copy_match = COPY_OF_RE.match(name)
     if copy_match:
         clean = name[copy_match.end() :]
-        target = src.parent / clean
-        if target.exists():
-            try:
-                if md5_of(src) == md5_of(target):
-                    return None, "", False  # exact duplicate -> drop
-            except OSError:
-                pass
         name = clean
         stem = (
-            name[: -len(final_ext)] if final_ext and name.endswith(final_ext) else name
+            name[: -len(final_ext)]
+            if final_ext and name.lower().endswith(final_ext)
+            else name
         )
 
     # --- generic names get event context from their leaf folder ---------------
@@ -249,21 +257,59 @@ def rename_file(
     return clean, final_ext, False
 
 
-def dedupe_within_dir(files: list[Path]) -> list[Path]:
-    """Drop exact content duplicates within one directory (keeps first)."""
-    seen: dict[str, Path] = {}
-    keep: list[Path] = []
-    for f in sorted(files):
-        try:
-            h = md5_of(f)
-        except OSError:
-            keep.append(f)
-            continue
-        if h in seen:
-            continue
-        seen[h] = f
-        keep.append(f)
-    return keep
+def next_available(path: Path) -> Path:
+    """Return a deterministic collision-free destination without overwriting."""
+    if not path.exists():
+        return path
+    stem = path.stem
+    suffix = path.suffix
+    index = 1
+    while True:
+        candidate = path.with_name(f"{stem}_{index}{suffix}")
+        if not candidate.exists():
+            return candidate
+        index += 1
+
+
+def stage_source(
+    src: Path,
+    desired: Path,
+    source: Path,
+    processed: Path,
+    stats: dict,
+    seen_by_dir: dict[Path, dict[str, dict]],
+) -> Path:
+    """Copy one source file, merging only exact duplicates in its folder."""
+    source_hash = sha256_of(src)
+    scope = seen_by_dir.setdefault(desired.parent, {})
+    duplicate = scope.get(source_hash)
+    if duplicate:
+        stats["merged"] += 1
+        stats["records"].append(
+            {
+                "source_path": str(src.relative_to(source)),
+                "source_sha256": source_hash,
+                "source_size_bytes": src.stat().st_size,
+                "staged_path": duplicate["staged_path"],
+                "duplicate_of": duplicate["source_path"],
+            }
+        )
+        return processed / duplicate["staged_path"]
+
+    dst = next_available(desired)
+    shutil.copy2(src, dst)
+    stats["copied"] += 1
+    if dst.name != desired.name:
+        stats["renamed"] += 1
+    record = {
+        "source_path": str(src.relative_to(source)),
+        "source_sha256": source_hash,
+        "source_size_bytes": src.stat().st_size,
+        "staged_path": str(dst.relative_to(processed)),
+    }
+    scope[source_hash] = record
+    stats["records"].append(record)
+    return dst
 
 
 # ---------------------------------------------------------------------------
@@ -272,7 +318,16 @@ def dedupe_within_dir(files: list[Path]) -> list[Path]:
 
 
 def stage_all(source: Path, processed: Path) -> dict:
-    stats = {"copied": 0, "renamed": 0, "skipped": 0, "dropped": 0, "clubs": set()}
+    stats = {
+        "copied": 0,
+        "renamed": 0,
+        "merged": 0,
+        "skipped": 0,
+        "dropped": 0,
+        "clubs": set(),
+        "records": [],
+    }
+    seen_by_dir: dict[Path, dict[str, dict]] = {}
     for top_dir in sorted(p for p in source.iterdir() if p.is_dir()):
         top_key = top_dir.name
         top_cfg = ROOT_MAP.get(top_key)
@@ -304,12 +359,14 @@ def stage_all(source: Path, processed: Path) -> dict:
                 stats["dropped"] += 1
                 continue
             new_name = f"{stem}{ext}" if stem else f"(root)_{ext or '.bin'}"
-            dst = dst_dir / new_name
-            if dst.exists():
-                stats["skipped"] += 1
-                continue
-            shutil.copy2(f, dst)
-            stats["copied"] += 1
+            stage_source(
+                f,
+                dst_dir / new_name,
+                source,
+                processed,
+                stats,
+                seen_by_dir,
+            )
             stats["clubs"].add(slug)
 
         for child in sorted(top_dir.iterdir()):
@@ -324,12 +381,28 @@ def stage_all(source: Path, processed: Path) -> dict:
                 print(f"  [info] no new data staged for: {child.name}")
                 stats["dropped"] += 1
                 continue
-            _stage_club_tree(child, processed / slug, stats, sink_children)
+            _stage_club_tree(
+                child,
+                processed / slug,
+                stats,
+                source,
+                processed,
+                sink_children,
+                seen_by_dir,
+            )
             stats["clubs"].add(slug)
     return stats
 
 
-def _stage_club_tree(club_dir: Path, dst_root: Path, stats: dict, sink_children: bool):
+def _stage_club_tree(
+    club_dir: Path,
+    dst_root: Path,
+    stats: dict,
+    source: Path,
+    processed: Path,
+    sink_children: bool,
+    seen_by_dir: dict[Path, dict[str, dict]],
+):
     """Copy a club's tree, renaming dirs and files."""
     for dirpath, dirnames, filenames in os.walk(club_dir):
         rel = Path(dirpath).relative_to(club_dir)
@@ -342,7 +415,6 @@ def _stage_club_tree(club_dir: Path, dst_root: Path, stats: dict, sink_children:
             continue
         dst_dir.mkdir(parents=True, exist_ok=True)
         files = [Path(dirpath) / f for f in filenames]
-        files = dedupe_within_dir(files)
         leaf = Path(dirpath).name
         folder = sanitize_name(leaf) or "event"
 
@@ -359,15 +431,8 @@ def _stage_club_tree(club_dir: Path, dst_root: Path, stats: dict, sink_children:
                 pending_generic.append((src, stem, ext))
                 continue
             name = f"{stem}{ext}"
-            dst = dst_dir / name
-            if dst.exists():
-                stats["skipped"] += 1
-                continue
-            used.add(name)
-            shutil.copy2(src, dst)
-            stats["copied"] += 1
-            if name != src.name:
-                stats["renamed"] += 1
+            dst = stage_source(src, dst_dir / name, source, processed, stats, seen_by_dir)
+            used.add(dst.name)
 
         # Second pass: generic files get event-context sequence names, e.g.
         # Field_Trip_01.webp (pure generic) or Fresher_s_2025_Board_1_3.jpg
@@ -387,14 +452,8 @@ def _stage_club_tree(club_dir: Path, dst_root: Path, stats: dict, sink_children:
                     seq += 1
                     candidate = f"{folder}_{seq:02d}{ext}"
                 seq += 1
-            dst = dst_dir / candidate
-            if dst.exists():
-                stats["skipped"] += 1
-                continue
-            used.add(candidate)
-            shutil.copy2(src, dst)
-            stats["copied"] += 1
-            stats["renamed"] += 1
+            dst = stage_source(src, dst_dir / candidate, source, processed, stats, seen_by_dir)
+            used.add(dst.name)
 
 
 # ---------------------------------------------------------------------------
@@ -411,6 +470,7 @@ SUPPORTED_IMAGE_EXT = {
     ".tif",
     ".heic",
     ".heif",
+    ".arw",
     ".webp",
 }
 
@@ -430,7 +490,28 @@ def convert_images(processed: Path, quality: int = 85, max_dim: int = 2400) -> d
                 continue
             dst = src.with_suffix(".webp")
             try:
-                if ext in {".heic", ".heif"}:
+                if ext == ".arw":
+                    try:
+                        import rawpy
+                    except ImportError as exc:
+                        raise RuntimeError(
+                            "ARW conversion requires optional dependency rawpy"
+                        ) from exc
+                    with rawpy.imread(str(src)) as raw:
+                        rgb = raw.postprocess(
+                            use_camera_wb=True,
+                            no_auto_bright=True,
+                            output_bps=8,
+                        )
+                    image = Image.fromarray(rgb)
+                    if max(image.size) > max_dim:
+                        ratio = max_dim / max(image.size)
+                        image = image.resize(
+                            (int(image.width * ratio), int(image.height * ratio)),
+                            Image.Resampling.LANCZOS,
+                        )
+                    image.save(dst, "WEBP", quality=quality, method=6)
+                elif ext in {".heic", ".heif"}:
                     # Pillow cannot read HEIC -> ImageMagick
                     r = subprocess.run(
                         [
@@ -509,57 +590,86 @@ def xlsx_to_markdown(xlsx_path: Path, output_dir: Path) -> Path | None:
 
 
 def parse_docs(processed: Path) -> dict:
-    from docx_parser import process_directory as parse_docx
-    from pdf_parser import process_directory as parse_pdf
-    from html_parser import process_directory as parse_html
+    from docx_parser import docx_to_markdown
+    from html_parser import html_to_markdown
+    from pdf_parser import pdf_to_markdown
 
     stats = {"docx": 0, "pdf": 0, "html": 0, "xlsx": 0, "errors": 0}
-    docx_files = sorted(processed.rglob("*.docx"))
-    pdf_files = sorted(processed.rglob("*.pdf"))
-    html_files = sorted(processed.rglob("*.html"))
-    xlsx_files = sorted(processed.rglob("*.xlsx"))
+    all_files = [p for p in processed.rglob("*") if p.is_file()]
+    docx_files = sorted(p for p in all_files if p.suffix.lower() == ".docx")
+    pdf_files = sorted(p for p in all_files if p.suffix.lower() == ".pdf")
+    html_files = sorted(p for p in all_files if p.suffix.lower() in {".html", ".htm"})
+    xlsx_files = sorted(p for p in all_files if p.suffix.lower() == ".xlsx")
 
-    # DOCX/PDF/HTML parsers walk a src dir and write md next to it
-    for src_dir in _unique_parents(docx_files + pdf_files + html_files):
+    # A DOCX and PDF with the same stem often coexist (for example, a club
+    # report supplied in both formats). Give their Markdown and extracted
+    # image directories distinct names so the second parser cannot overwrite
+    # the first parser's output.
+    document_groups: dict[tuple[Path, str], set[str]] = {}
+    for path in docx_files + pdf_files + html_files:
+        document_groups.setdefault((path.parent, path.stem), set()).add(
+            path.suffix.lower()
+        )
+
+    successful_docs: list[Path] = []
+
+    for src in docx_files:
+        suffixes = document_groups[(src.parent, src.stem)]
+        output_stem = f"{src.stem}_docx" if len(suffixes) > 1 else src.stem
         try:
-            d = parse_docx(src_dir, src_dir)
-            stats["docx"] += d["processed"]
+            docx_to_markdown(
+                src,
+                src.parent,
+                output_stem=output_stem,
+                image_dir_name=f"{output_stem}_images",
+            )
+            stats["docx"] += 1
+            successful_docs.append(src)
         except Exception as e:
             stats["errors"] += 1
-            print(f"  [error] docx dir {src_dir}: {e}", file=sys.stderr)
+            print(f"  [error] docx {src}: {e}", file=sys.stderr)
+
+    for src in pdf_files:
+        suffixes = document_groups[(src.parent, src.stem)]
+        output_stem = f"{src.stem}_pdf" if len(suffixes) > 1 else src.stem
         try:
-            p = parse_pdf(src_dir, src_dir)
-            stats["pdf"] += p["processed"]
+            pdf_to_markdown(
+                src,
+                src.parent,
+                output_stem=output_stem,
+                image_dir_name=f"{output_stem}_images",
+            )
+            stats["pdf"] += 1
+            successful_docs.append(src)
         except Exception as e:
             stats["errors"] += 1
-            print(f"  [error] pdf dir {src_dir}: {e}", file=sys.stderr)
+            print(f"  [error] pdf {src}: {e}", file=sys.stderr)
+
+    for src in html_files:
         try:
-            h = parse_html(src_dir, src_dir)
-            stats["html"] += h["processed"]
+            html_to_markdown(src, src.parent)
+            stats["html"] += 1
+            successful_docs.append(src)
         except Exception as e:
             stats["errors"] += 1
-            print(f"  [error] html dir {src_dir}: {e}", file=sys.stderr)
+            print(f"  [error] html {src}: {e}", file=sys.stderr)
 
     for x in xlsx_files:
         try:
             if xlsx_to_markdown(x, x.parent):
                 stats["xlsx"] += 1
-                x.unlink()
+                successful_docs.append(x)
         except Exception as e:
             stats["errors"] += 1
             print(f"  [error] xlsx {x}: {e}", file=sys.stderr)
 
-    # Remove raw source documents after successful parse: the site only
-    # consumes markdown + images (old processed tree contained md+webp only).
-    for p in processed.rglob("*"):
-        if p.suffix.lower() in {".docx", ".pdf", ".html", ".htm"} and p.is_file():
+    # Remove raw source documents only after their individual parser succeeded.
+    # Failed inputs remain visible for a follow-up run instead of disappearing.
+    for p in successful_docs:
+        if p.exists():
             p.unlink()
 
     return stats
-
-
-def _unique_parents(paths: list[Path]) -> list[Path]:
-    return sorted({p.parent for p in paths})
 
 
 # ---------------------------------------------------------------------------
@@ -617,6 +727,90 @@ def compress_videos(processed: Path, crf: int = 30, max_h: int = 720) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Rebuild hygiene and source accounting
+# ---------------------------------------------------------------------------
+
+
+def reset_processed(processed: Path) -> None:
+    """Remove generated clubs while retaining explicitly carried-over clubs."""
+    processed.mkdir(parents=True, exist_ok=True)
+    for child in processed.iterdir():
+        if child.is_dir() and child.name in KEEP_OLD_SLUGS:
+            continue
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink()
+
+
+def source_output_paths(record: dict, processed: Path) -> list[str]:
+    """Resolve a staged source record to its final website-ready outputs."""
+    staged = processed / record["staged_path"]
+    suffix = staged.suffix.lower()
+
+    if suffix in SUPPORTED_IMAGE_EXT:
+        candidate = staged.with_suffix(".webp")
+        return [str(candidate.relative_to(processed))] if candidate.exists() else []
+    if suffix in {".mov", ".m4v"}:
+        candidate = staged.with_suffix(".mp4")
+        return [str(candidate.relative_to(processed))] if candidate.exists() else []
+    if suffix == ".mp4":
+        return [str(staged.relative_to(processed))] if staged.exists() else []
+    if suffix in {".docx", ".pdf", ".html", ".htm", ".xlsx"}:
+        stem = staged.stem
+        candidates = [stem]
+        if suffix == ".docx":
+            candidates.insert(0, f"{stem}_docx")
+        elif suffix == ".pdf":
+            candidates.insert(0, f"{stem}_pdf")
+        outputs: list[Path] = []
+        for output_stem in candidates:
+            markdown = staged.with_name(f"{output_stem}.md")
+            image_dir = staged.with_name(f"{output_stem}_images")
+            if markdown.exists():
+                outputs.append(markdown)
+            if image_dir.is_dir():
+                outputs.extend(sorted(p for p in image_dir.rglob("*") if p.is_file()))
+            if outputs:
+                break
+        return [str(path.relative_to(processed)) for path in outputs]
+    return [str(staged.relative_to(processed))] if staged.exists() else []
+
+
+def write_source_manifest(source: Path, processed: Path, records: list[dict]) -> Path:
+    """Write a reproducible source-to-output accounting ledger."""
+    manifest = processed / "source_manifest.jsonl"
+    rows = []
+    for record in sorted(records, key=lambda r: r["source_path"]):
+        outputs = source_output_paths(record, processed)
+        rows.append(
+            {
+                "source_path": record["source_path"],
+                "source_sha256": record["source_sha256"],
+                "source_size_bytes": record["source_size_bytes"],
+                "staged_path": record["staged_path"],
+                "output_paths": outputs,
+                "status": "merged" if record.get("duplicate_of") else ("processed" if outputs else "error"),
+                **({"duplicate_of": record["duplicate_of"]} if record.get("duplicate_of") else {}),
+            }
+        )
+    with manifest.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+    errors = [row for row in rows if row["status"] not in {"processed", "merged"}]
+    if errors:
+        print(
+            f"[manifest] {len(errors)} source files have no processed output",
+            file=sys.stderr,
+        )
+        for row in errors:
+            print(f"  [manifest-error] {row['source_path']}", file=sys.stderr)
+    else:
+        print(f"[manifest] {len(rows)} source files accounted for")
+    return manifest
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -642,11 +836,13 @@ def main():
         print(f"Source not found: {source}", file=sys.stderr)
         sys.exit(1)
 
+    reset_processed(processed)
     print(f"[stage] {source} -> {processed}")
     st = stage_all(source, processed)
     print(
         f"  staged: {st['copied']} copied, {st['renamed']} renamed, "
-        f"{st['skipped']} skipped, {st['dropped']} dropped, {len(st['clubs'])} clubs"
+        f"{st['merged']} exact duplicates merged, {st['skipped']} skipped, "
+        f"{st['dropped']} dropped, {len(st['clubs'])} clubs"
     )
     for club in sorted(st["clubs"]):
         print(f"    - {club}")
@@ -674,6 +870,8 @@ def main():
         print(f"  compressed: {v['compressed']}, errors: {v['errors']}")
     else:
         print("[videos] skipped")
+
+    write_source_manifest(source, processed, st["records"])
 
     print("[map] generating assets_map.jsonl...")
     from generate_assets_map import generate_assets_map

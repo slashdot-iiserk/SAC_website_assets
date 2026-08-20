@@ -45,7 +45,7 @@ IISER Kolkata Gym Club — Official Rulebook
 Page 1 of 2
 
 
-![Image](page1_img1.webp)
+![Image](Gym_Club_Rulebook_images/page1_img1.webp)
 
 ## Page 2
 
@@ -82,4 +82,4 @@ IISER Kolkata Gym Club — Official Rulebook
 Page 2 of 2
 
 
-![Image](page2_img1.webp)
+![Image](Gym_Club_Rulebook_images/page2_img1.webp)

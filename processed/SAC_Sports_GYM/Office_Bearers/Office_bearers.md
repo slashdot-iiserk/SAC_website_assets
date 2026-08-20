@@ -9,7 +9,7 @@ Email: sk24ms100@iiserkol.ac.in
 Photo:
 
 
-![Image 1](img_001.webp)
+![Image 1](Office_bearers_images/img_001.webp)
 
 
 Convener : Mahfooz Alam
@@ -21,7 +21,7 @@ Email : ma24ms132@iiserkol.ac.in
 Photo:
 
 
-![Image 2](img_002.webp)
+![Image 2](Office_bearers_images/img_002.webp)
 
 
 
@@ -45,7 +45,7 @@ Email: sm24ms087@gmail.com
 Photo:
 
 
-![Image 3](img_003.webp)
+![Image 3](Office_bearers_images/img_003.webp)
 
 Convener : Iishaan Pyne
 
@@ -57,4 +57,4 @@ Photo:
 
 
 
-![Image 4](img_004.webp)
+![Image 4](Office_bearers_images/img_004.webp)

@@ -1,1 +1,1 @@
-# Events Activities
+# Events & Activities

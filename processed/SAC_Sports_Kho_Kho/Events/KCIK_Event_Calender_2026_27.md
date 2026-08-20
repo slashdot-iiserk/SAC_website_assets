@@ -29,22 +29,22 @@ Stay tuned for more updates and details on each event! We look forward to your e
 participation. Free Snacks available on certain events .
 
 
-![Image](page1_img1.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img1.webp)
 
 
-![Image](page1_img2.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img2.webp)
 
 
-![Image](page1_img3.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img3.webp)
 
 
-![Image](page1_img4.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img4.webp)
 
 
-![Image](page1_img5.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img5.webp)
 
 
-![Image](page1_img6.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img6.webp)
 
 
-![Image](page1_img7.webp)
+![Image](KCIK_Event_Calender_2026_27_images/page1_img7.webp)

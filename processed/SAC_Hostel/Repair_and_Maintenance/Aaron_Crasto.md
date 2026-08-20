@@ -24,4 +24,4 @@ Contact Information:
 깁 Email: cav25ms210@iiserkol.ac.in
 
 
-![Image](page1_img1.webp)
+![Image](Aaron_Crasto_images/page1_img1.webp)

@@ -1,4 +1,4 @@
-# Sudarshan Mondal
+# Sudarshan Mondal 
 
 Name : Sudarshan Mondal
 
@@ -16,4 +16,4 @@ Email id :  sm25ms093@iiserkol.ac.in
 Photograph :
 
 
-![Image 1](img_001.webp)
+![Image 1](Sudarshan_Mondal_images/img_001.webp)

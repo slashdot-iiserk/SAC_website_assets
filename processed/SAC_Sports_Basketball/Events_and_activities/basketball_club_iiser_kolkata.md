@@ -9,7 +9,7 @@ Events & Tournaments
 A welcome match organized for newly admitted students to introduce them to the basketball culture at
 IISER Kolkata and encourage participation in club activities.
 2. IISM Practice Sessions
-Structured training sessions conducted throughout the year to improve basketball fundamentals,
+Structured  training  sessions  conducted  throughout  the  year  to  improve  basketball  fundamentals,
 teamwork, fitness, and tournament readiness.
 3. Practice Matches with Other Colleges
 Friendly matches organized with neighboring institutions to provide competitive exposure and help
@@ -18,7 +18,7 @@ players gain real-game experience.
 Participation in the Inter IISER Sports Meet, where the IISER Kolkata basketball team represents the
 institute in national-level inter-IISER competition.
 5. Interbatch Matches
-An intra-campus tournament involving different academic batches, promoting healthy competition,
+An  intra-campus  tournament  involving  different  academic  batches,  promoting  healthy  competition,
 interaction, and team spirit among students.
 6. Inquesta 3v3
 A 3-on-3 basketball event organized during Inquesta that encourages wider student participation in a
@@ -32,7 +32,7 @@ IISER Kolkata Basketball Club
 ## Page 2
 
 8. Auction Tournament
-A franchise-style tournament where captains select players through an auction process, creating
+A  franchise-style  tournament  where  captains  select  players  through  an  auction  process,  creating
 balanced teams and a unique competitive experience.
 9. Farewell Matches
 Special matches organized to celebrate graduating students and recognize their contributions to the

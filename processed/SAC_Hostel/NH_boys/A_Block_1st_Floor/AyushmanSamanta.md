@@ -17,4 +17,4 @@ Photograph :
 
 
 
-![Image 1](img_001.webp)
+![Image 1](AyushmanSamanta_images/img_001.webp)

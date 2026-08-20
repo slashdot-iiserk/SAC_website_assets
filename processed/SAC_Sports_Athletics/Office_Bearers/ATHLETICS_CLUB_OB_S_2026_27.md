@@ -10,7 +10,7 @@ Email: sd25ms229@iiserkol.ac.in
 Contact number:+91 7318893532
 
 
-![Image 1](img_001.webp)
+![Image 1](ATHLETICS_CLUB_OB_S_2026_27_images/img_001.webp)
 
 
 
@@ -21,7 +21,7 @@ Email: sb25ms311@iiserkol.ac.in
 Contact number:+91 7328058070
 
 
-![Image 2](img_002.webp)
+![Image 2](ATHLETICS_CLUB_OB_S_2026_27_images/img_002.webp)
 
 ➤Treasurer:Tansukh
 
@@ -30,7 +30,7 @@ Email:t25ms263@iiserkol.ac.in
 Contact number:+91 8306454858
 
 
-![Image 3](img_003.webp)
+![Image 3](ATHLETICS_CLUB_OB_S_2026_27_images/img_003.webp)
 
 
 ➤Convenor:Rohit Ranjan
@@ -40,7 +40,7 @@ Email: rr25ms230@iiserkol.ac.in
 Contact number:+91 6203965277
 
 
-![Image 4](img_004.webp)
+![Image 4](ATHLETICS_CLUB_OB_S_2026_27_images/img_004.webp)
 
 
 
@@ -53,4 +53,4 @@ Email: p25ms125@iiserkol.ac.in
 Contact number:+91 9382956727
 
 
-![Image 5](img_005.webp)
+![Image 5](ATHLETICS_CLUB_OB_S_2026_27_images/img_005.webp)

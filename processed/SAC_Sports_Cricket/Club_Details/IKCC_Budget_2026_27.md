@@ -1,4 +1,4 @@
-# Ikcc Budget 2026 27
+# Ikcc Budget(2026 27)
 
 ## Page 1
 
@@ -97,7 +97,7 @@ IISER Kolkata Cricket Club • Final Budget Proposal FY 2026-2027
 1
 
 
-![Image](page1_img1.webp)
+![Image](IKCC_Budget_2026_27_images/page1_img1.webp)
 
 ## Page 2
 
@@ -141,7 +141,7 @@ IISER Kolkata Cricket Club • Final Budget Proposal FY 2026-2027
 2
 
 
-![Image](page2_img1.webp)
+![Image](IKCC_Budget_2026_27_images/page2_img1.webp)
 
 ## Page 3
 
@@ -171,4 +171,4 @@ IISER Kolkata Cricket Club • Final Budget Proposal FY 2026-2027
 3
 
 
-![Image](page3_img1.webp)
+![Image](IKCC_Budget_2026_27_images/page3_img1.webp)

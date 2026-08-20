@@ -1,7 +1,7 @@
 # Aditya Bramhbhatt
 
 
-![Name: Aditya Bramhbhatt](img_001.webp)
+![Name: Aditya Bramhbhatt](Aditya_Bramhbhatt_images/img_001.webp)
 
 
 Position(s):

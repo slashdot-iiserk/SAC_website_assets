@@ -1,4 +1,4 @@
-# Events And Activities 2
+# Events And Activities (2)
 
 ## Page 1
 

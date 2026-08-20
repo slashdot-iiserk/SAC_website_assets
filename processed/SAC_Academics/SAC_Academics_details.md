@@ -49,7 +49,7 @@ Personal Details: I am a third year IPhD student from the department of Biologic
 Profile Photo:
 
 
-![Image 1](img_001.webp)
+![Image 1](SAC_Academics_details_images/img_001.webp)
 
 
 

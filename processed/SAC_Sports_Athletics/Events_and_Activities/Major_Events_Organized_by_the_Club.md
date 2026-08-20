@@ -1,4 +1,4 @@
-# Major Events Organized By The Club
+# Major Events Organized By The Club 
 
 Major Events Organized by the Club
 

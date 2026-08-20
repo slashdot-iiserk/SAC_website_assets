@@ -1,4 +1,4 @@
-# Animesh
+# Animesh 
 
 Name: Animesh Dewangan
 
@@ -24,5 +24,5 @@ Phone: 8085335265
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Animesh_images/img_001.webp)
 

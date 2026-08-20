@@ -1,4 +1,4 @@
-# Volik People 1
+# Volik People (1)
 
 ## Page 1
 
@@ -9,4 +9,4 @@ Please go to this link for all the details.
 1
 
 
-![Image](page1_img1.webp)
+![Image](VOLIK_People_1_images/page1_img1.webp)

@@ -62,10 +62,16 @@ def extract_pdf_images(pdf_path: Path, output_dir: Path) -> list[Path]:
     return images
 
 
-def pdf_to_markdown(pdf_path: Path, output_dir: Path) -> Path:
+def pdf_to_markdown(
+    pdf_path: Path,
+    output_dir: Path,
+    output_stem: str | None = None,
+    image_dir_name: str | None = None,
+) -> Path:
     """Convert PDF to Markdown with extracted text and images."""
+    output_stem = output_stem or pdf_path.stem
     doc = fitz.open(str(pdf_path))
-    img_dir = output_dir / f"{pdf_path.stem}_images"
+    img_dir = output_dir / (image_dir_name or f"{output_stem}_images")
     images = extract_pdf_images(pdf_path, img_dir)
 
     md_lines = [f"# {pdf_path.stem.replace('_', ' ').replace('-', ' ').title()}\n"]
@@ -81,15 +87,12 @@ def pdf_to_markdown(pdf_path: Path, output_dir: Path) -> Path:
             img for img in images if img.name.startswith(f"page{page_num + 1}")
         ]
         for img_path in page_imgs:
-            md_lines.append(f"\n![Image]({img_path.name})\n")
+            image_ref = img_path.relative_to(output_dir).as_posix()
+            md_lines.append(f"\n![Image]({image_ref})\n")
 
     doc.close()
 
-    md_path = output_dir / f"{pdf_path.stem}.md"
-    if md_path.exists():
-        existing = md_path.read_text(encoding="utf-8")
-        if existing.strip():
-            md_path = output_dir / f"{pdf_path.stem}_pdf.md"
+    md_path = output_dir / f"{output_stem}.md"
     md_path.write_text("\n".join(md_lines), encoding="utf-8")
     return md_path
 

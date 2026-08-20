@@ -14,4 +14,4 @@ Picture:
 
 
 
-![Image 1](img_001.webp)
+![Image 1](Aditya_Das_images/img_001.webp)

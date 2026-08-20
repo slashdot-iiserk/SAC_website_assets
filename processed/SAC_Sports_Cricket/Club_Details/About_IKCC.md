@@ -32,4 +32,4 @@ Instagram  — https://www.instagram.com/cricket_club_iiserk/
 Official Mail  — mailto:cricket.activity@iiserkol.ac.in
 
 
-![Image](page1_img1.webp)
+![Image](About_IKCC_images/page1_img1.webp)

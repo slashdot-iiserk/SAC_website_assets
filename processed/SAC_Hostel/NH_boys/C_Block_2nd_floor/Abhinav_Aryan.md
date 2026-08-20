@@ -12,4 +12,4 @@ Email: aa23ms031@iiserkol.ac.in
 Phone:7759892976
 
 
-![Image 1](img_001.webp)
+![Image 1](Abhinav_Aryan_images/img_001.webp)

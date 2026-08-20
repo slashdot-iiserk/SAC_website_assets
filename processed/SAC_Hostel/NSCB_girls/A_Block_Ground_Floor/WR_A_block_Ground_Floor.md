@@ -9,4 +9,4 @@
 (iv) Email Address: sc23ms114@iiserkol.ac.in
 
 
-![(v) Photo:](img_001.webp)
+![(v) Photo:](WR_A_block_Ground_Floor_images/img_001.webp)

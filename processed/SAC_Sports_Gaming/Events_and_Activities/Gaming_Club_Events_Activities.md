@@ -1,4 +1,4 @@
-# Gaming Club Events Activities
+# Gaming Club   Events & Activities
 
 ## Page 1
 

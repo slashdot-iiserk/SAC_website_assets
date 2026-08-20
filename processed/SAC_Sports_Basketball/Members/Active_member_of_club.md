@@ -1,60 +1,30 @@
-# Active Member Of Club
+# Active Member Of Club 
 
-## Sheet1
+## Page 1
 
-| Soumya Ranjan Jena |  |
-| --- | --- |
-| Ayush Kumar Dubey |  |
-| Vinayak Prabhu |  |
-| Rudraksh Patel |  |
-| Utkarsh kumar Tiwari |  |
-| Rohit Ranjan |  |
-| Shaurya Veer Singh |  |
-| Mohammad Usman |  |
-| Akhil Singh |  |
-| Harshwardhan Vyavhare |  |
-| Arman Parashar |  |
-| Raj Sharma |  |
-| M Dinakar |  |
-| Srushti |  |
-| Pallavi Sabar |  |
-| Chinmayee |  |
-| Janushree |  |
-| Sargun Meet Singh |  |
-| Prateek Kumbhalkar |  |
-| Tripti Kumari |  |
-| Grace |  |
-| Hemant Kumar Saini |  |
-| Inoday Bharadwaj |  |
-| Adhya Bansal |  |
-| Anjali Gupta |  |
-| Vihan Ghiya |  |
-| Akshat Mishra |  |
-| Om Parida |  |
-| Kaushal K |  |
-| Ayush Dwivedi |  |
-| Liyam Kamra |  |
-| Akshmeet |  |
-| Swarali |  |
-| Prachi |  |
-| Sachika |  |
-| Nikku repswal |  |
-| Priyanka |  |
-| Avipsha Das |  |
-| Madhura |  |
-| Nikita |  |
-| Nandita |  |
-| Vipra |  |
-| Abhishek Chauhan |  |
-| Vara Prasad |  |
-| Abhishek Tatavarthy |  |
-| Siddharth Sagar |  |
-| Devansh Joshi |  |
-| Anshika Yadav |  |
-| Krishna Tiwari |  |
-| Utkarsh Chawla |  |
-| Aditya Parmar |  |
-| Rohit |  |
-| Mettu Vasudev |  |
-| Asmit |  |
-| Asmeet |  |
+DEVDARSH - 22MS
+ASMIT - 22MS
+K.PRASHAD -22MS
+ABHISHEK - 23MS
+SIDDHARTH SAGAR-23MS
+DIVYANSH -23MS
+AKSHMIT PAJI-23MS
+U.CHAWALA-23MS
+INODAY BHARADWAJ -24MS
+AKSHAT MISHRA -24MS
+HEMANT KUMAR SAINI -24MS
+KAUSHAL K. -24MS
+VIHAN GHIYA -24MS
+OMM PARIDA -24MS
+AYUSH -24MS
+LIYAM KAMRA-24MS
+SABRI -22MS
+HARSHWARDHAN -25MS
+DINAKAR -25MS
+ARMAN PARASHAR -25MS
+RAJ -25MS
+UTKARSH TIWARI -25MS
+ROHIT RANJAN -25MS
+SURYA KUMAR SINGH -25MS
+AKHIL SINGH -25MS
+KRISH ROY -25MS

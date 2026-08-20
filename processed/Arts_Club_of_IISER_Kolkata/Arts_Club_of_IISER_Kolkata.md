@@ -13,7 +13,7 @@ CURRENT OFFICE BEARERS :
 Tenure 26-27
 
 
-![Image 1](img_001.webp)
+![Image 1](Arts_Club_of_IISER_Kolkata_images/img_001.webp)
 
 (L-R;Omkar,Soumik,Ritisneha,Moupiya,Samadrita)
 
@@ -30,7 +30,7 @@ Flagship Events
 Chitrakavyam is an exhibition-cum-auction that celebrates the artistic talents of our student community. The event provides a platform for students to showcase their paintings and creative works while also giving them an opportunity to sell them to interested buyers.
 
 
-![Image 2](img_002.webp)
+![Image 2](Arts_Club_of_IISER_Kolkata_images/img_002.webp)
 
 
 2. Halloween

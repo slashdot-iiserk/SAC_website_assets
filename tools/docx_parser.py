@@ -124,10 +124,16 @@ def convert_image_to_webp(src: Path) -> Path:
         return src
 
 
-def docx_to_markdown(docx_path: Path, output_dir: Path) -> Path:
+def docx_to_markdown(
+    docx_path: Path,
+    output_dir: Path,
+    output_stem: str | None = None,
+    image_dir_name: str | None = None,
+) -> Path:
     """Convert DOCX to Markdown with embedded images and captions."""
     doc = Document(str(docx_path))
-    img_dir = output_dir / f"{docx_path.stem}_images"
+    output_stem = output_stem or docx_path.stem
+    img_dir = output_dir / (image_dir_name or f"{output_stem}_images")
     images = extract_images_with_context(doc, docx_path, img_dir)
 
     md_lines = []
@@ -152,15 +158,14 @@ def docx_to_markdown(docx_path: Path, output_dir: Path) -> Path:
 
                         webp_path = convert_image_to_webp(img_info["path"])
                         img_counter += 1
+                        image_ref = webp_path.relative_to(output_dir).as_posix()
 
                         caption = img_info["caption"]
                         if caption and caption != f"Image {img_counter}":
                             caption = caption[:100]
-                            md_lines.append(f"\n![{caption}]({webp_path.name})\n")
+                            md_lines.append(f"\n![{caption}]({image_ref})\n")
                         else:
-                            md_lines.append(
-                                f"\n![Image {img_counter}]({webp_path.name})\n"
-                            )
+                            md_lines.append(f"\n![Image {img_counter}]({image_ref})\n")
 
         if para_has_image:
             continue
@@ -211,9 +216,10 @@ def docx_to_markdown(docx_path: Path, output_dir: Path) -> Path:
 
     for img in remaining_imgs:
         webp_path = convert_image_to_webp(img["path"])
-        md_lines.append(f"\n![{img['caption']}]({webp_path.name})\n")
+        image_ref = webp_path.relative_to(output_dir).as_posix()
+        md_lines.append(f"\n![{img['caption']}]({image_ref})\n")
 
-    md_path = output_dir / f"{docx_path.stem}.md"
+    md_path = output_dir / f"{output_stem}.md"
     md_path.write_text("\n".join(md_lines), encoding="utf-8")
     return md_path
 

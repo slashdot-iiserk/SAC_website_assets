@@ -1,10 +1,10 @@
-# Aarshi The Drama Club
+# Aarshi   The Drama Club
 
 ## AARSHI - THE DRAMA CLUB
 
 
 
-![Image 1](img_001.webp)
+![Image 1](AARSHI_THE_DRAMA_CLUB_images/img_001.webp)
 
 
 INTRODUCTION :

@@ -26,5 +26,5 @@ Mobile: 9422331050
 Email: sgr24ms213@iiserkol.ac.in
 
 
-![Image 1](img_001.webp)
+![Image 1](Shivavardhan_images/img_001.webp)
 

@@ -4,7 +4,7 @@
 PHOTOGRAPHY CLUB
 
 
-![Image 1](img_001.webp)
+![Image 1](Pixel_Data_docx_images/img_001.webp)
 
 # INTRODUCTION
 

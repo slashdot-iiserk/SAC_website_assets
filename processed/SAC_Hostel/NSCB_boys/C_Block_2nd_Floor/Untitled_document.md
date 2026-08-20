@@ -10,4 +10,4 @@
 ●​ Email: kt23ms012@iiserkol.ac.in
 
 
-![Image](page1_img1.webp)
+![Image](Untitled_document_images/page1_img1.webp)

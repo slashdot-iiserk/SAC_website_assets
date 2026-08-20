@@ -35,4 +35,4 @@ Connect With Us
 1
 
 
-![Image](page1_img1.webp)
+![Image](VOLIK_About_images/page1_img1.webp)

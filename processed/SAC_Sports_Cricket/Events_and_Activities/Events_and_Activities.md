@@ -51,4 +51,4 @@ they embark on the next stage of their academic and professional
 journeys.
 
 
-![Image](page2_img1.webp)
+![Image](Events_and_Activities_images/page2_img1.webp)

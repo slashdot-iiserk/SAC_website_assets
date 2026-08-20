@@ -11,10 +11,10 @@
 ​Contact Number :​​8881029621​
 
 
-![Image](page1_img1.webp)
+![Image](Office_Bearers_images/page1_img1.webp)
 
 
-![Image](page1_img2.webp)
+![Image](Office_Bearers_images/page1_img2.webp)
 
 ## Page 2
 
@@ -23,4 +23,4 @@
 ​Contact Number :​ ​7044125747​
 
 
-![Image](page2_img1.webp)
+![Image](Office_Bearers_images/page2_img1.webp)

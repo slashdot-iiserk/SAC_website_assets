@@ -14,4 +14,4 @@ hope to do my best in these roles.
 • Email: - ab25ms103@iiserkol.ac.in
 
 
-![Image](page2_img1.webp)
+![Image](a.bansal_images/page2_img1.webp)
