@@ -444,6 +444,13 @@ def extract_tenure(text: str) -> str | None:
     m = re.search(r"(20\d{2}-\d{2})", text)
     if m:
         return m.group(1)
+    # Underscore tenure form used by club folders, e.g. "26_27_OBs", "2025_26"
+    # Lookarounds keep this from matching inside longer digit runs.
+    m = re.search(r"(?<!\d)(\d{2})_(\d{2})(?!\d)", text)
+    if m:
+        a, b = int(m.group(1)), int(m.group(2))
+        if 20 <= a <= 40 and 20 <= b <= 40 and b == a + 1:
+            return f"{m.group(1)}-{m.group(2)}"
     return None
 
 
@@ -460,20 +467,27 @@ def tenure_to_year(tenure: str | None) -> int | None:
     return int(y)
 
 
+def _year_window() -> tuple[int, int]:
+    """Sane year range: the institute's founding decade through next year."""
+    import datetime as _dt
+
+    return (2010, _dt.date.today().year + 1)
+
+
 def extract_year(text: str) -> int | None:
     """Pull the most likely year out of a path / filename.
-    Prefer 4-digit years; fall back to a 2-digit year (assumed 20YY).
-    Skips obviously-not-year numeric fragments (e.g. file counters)."""
+
+    Only explicit 4-digit years are trusted (e.g. 'IISM_2025', 'Fresher_s_2025').
+    The old bare 2-digit fallback produced garbage from sequence counters
+    ('Girls_freshers_30.mp4' → 2030) and has been removed — tenure-style
+    fragments ('26_27', '25-26') are handled by extract_tenure instead.
+    """
+    lo, hi = _year_window()
     candidates: list[int] = []
     for m in re.finditer(r"(?<!\d)(20\d{2})(?!\d)", text):
         y = int(m.group(1))
-        if 2015 <= y <= 2030:
+        if lo <= y <= hi:
             candidates.append(y)
-    if not candidates:
-        for m in re.finditer(r"(?<!\d)(\d{2})(?!\d)", text):
-            yy = int(m.group(1))
-            if 20 <= yy <= 30:
-                candidates.append(2000 + yy)
     if not candidates:
         return None
     return max(candidates)
@@ -808,6 +822,12 @@ def classify_and_describe(
 
     if ftype == "image" and flags["is_ob_portrait"] and person:
         title = person
+
+    # Videos living in event-named folders ARE event media — the events page
+    # renders <video> for them. (Audio stays unflagged: practice clips etc.)
+    if ftype == "video" and not flags["is_event"]:
+        if "event" in cat_lower or _is_event_category(category):
+            flags["is_event"] = True
 
     return {
         **flags,
