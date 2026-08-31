@@ -120,6 +120,8 @@ CLUB_NAMES = {
     "SPICMACAY": "SPICMACAY",
     "Slashdot_Programming_Club": "Slashdot — Coding & Design Club",
     "SAC_Food_and_Hygiene": "SAC Food and Hygiene",
+    # Campus-wide media archive (buildings/places — not a club)
+    "Campus_Archive": "Campus Archive",
 }
 
 CLUB_TAGS = {
