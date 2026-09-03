@@ -914,6 +914,13 @@ def generate_assets_map(
     eid = 0
 
     for root, _, fnames in os.walk(source_dir):
+        # thumbs/ holds grid variants of images already indexed — never emit
+        # them as standalone entries (they are referenced via thumb_url).
+        if (
+            Path(root) == source_dir / "thumbs"
+            or "thumbs" in Path(root).relative_to(source_dir).parts
+        ):
+            continue
         for fname in sorted(fnames):
             if fname == "assets_map.jsonl":
                 continue
@@ -954,6 +961,11 @@ def generate_assets_map(
                 "path": str(rel),
                 "absolute_path": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
                 "public_url": f"{ABSOLUTE_PATH_PREFIX}/{rel}",
+                "thumb_url": (
+                    f"{ABSOLUTE_PATH_PREFIX}/thumbs/{rel}"
+                    if ftype == "image" and (source_dir / "thumbs" / rel).exists()
+                    else None
+                ),
                 "club": club,
                 "club_name": CLUB_NAMES.get(club, club),
                 "category": parts[-2] if len(parts) > 2 else "(root)",
