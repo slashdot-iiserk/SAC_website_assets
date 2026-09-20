@@ -431,7 +431,9 @@ def _stage_club_tree(
                 pending_generic.append((src, stem, ext))
                 continue
             name = f"{stem}{ext}"
-            dst = stage_source(src, dst_dir / name, source, processed, stats, seen_by_dir)
+            dst = stage_source(
+                src, dst_dir / name, source, processed, stats, seen_by_dir
+            )
             used.add(dst.name)
 
         # Second pass: generic files get event-context sequence names, e.g.
@@ -452,7 +454,9 @@ def _stage_club_tree(
                     seq += 1
                     candidate = f"{folder}_{seq:02d}{ext}"
                 seq += 1
-            dst = stage_source(src, dst_dir / candidate, source, processed, stats, seen_by_dir)
+            dst = stage_source(
+                src, dst_dir / candidate, source, processed, stats, seen_by_dir
+            )
             used.add(dst.name)
 
 
@@ -476,7 +480,7 @@ SUPPORTED_IMAGE_EXT = {
 
 
 def convert_images(processed: Path, quality: int = 85, max_dim: int = 2400) -> dict:
-    from PIL import Image
+    from PIL import Image, ImageOps
 
     stats = {"converted": 0, "errors": 0, "skipped": 0}
     for root, _, files in os.walk(processed):
@@ -517,6 +521,7 @@ def convert_images(processed: Path, quality: int = 85, max_dim: int = 2400) -> d
                         [
                             "convert",
                             str(src),
+                            "-auto-orient",
                             "-resize",
                             f"{max_dim}x{max_dim}>",
                             "-quality",
@@ -530,6 +535,10 @@ def convert_images(processed: Path, quality: int = 85, max_dim: int = 2400) -> d
                         raise RuntimeError(r.stderr.strip()[:200])
                 else:
                     with Image.open(src) as img:
+                        # Honour the camera's EXIF orientation before the tag is
+                        # dropped: WebP has no orientation metadata, so without
+                        # this a portrait frame lands sideways forever.
+                        img = ImageOps.exif_transpose(img)
                         if img.mode == "RGBA":
                             img = img.convert("RGB")
                         elif img.mode not in ("RGB", "L"):
@@ -790,8 +799,14 @@ def write_source_manifest(source: Path, processed: Path, records: list[dict]) ->
                 "source_size_bytes": record["source_size_bytes"],
                 "staged_path": record["staged_path"],
                 "output_paths": outputs,
-                "status": "merged" if record.get("duplicate_of") else ("processed" if outputs else "error"),
-                **({"duplicate_of": record["duplicate_of"]} if record.get("duplicate_of") else {}),
+                "status": "merged"
+                if record.get("duplicate_of")
+                else ("processed" if outputs else "error"),
+                **(
+                    {"duplicate_of": record["duplicate_of"]}
+                    if record.get("duplicate_of")
+                    else {}
+                ),
             }
         )
     with manifest.open("w", encoding="utf-8") as handle:

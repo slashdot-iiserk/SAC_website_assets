@@ -41,7 +41,9 @@ SAC_website_assets/
    `SAC Hostel/*` → `SAC_Hostel`, `SAC Academics/*` → `SAC_Academics`/`Singularity_Astro_Club`/
    `Placement_Cell`, `SAC Food and Hygine` → `SAC_Food_and_Hygiene`.
 2. **Images**: every image (jpg/jpeg/png/heic/webp/arw) → WebP (quality 85, max 2400px).
-   HEIC uses ImageMagick and Sony ARW uses rawpy. No source duplicate is silently dropped.
+   EXIF orientation is applied with `ImageOps.exif_transpose` before saving (WebP carries no
+   orientation tag, so the rotation must be baked into the pixels), and HEIC conversion passes
+   `-auto-orient`. HEIC uses ImageMagick and Sony ARW uses rawpy. No source duplicate is silently dropped.
 3. **Smart renaming**: generic names (`WhatsApp Image…`, `IMG_…`, `PXL_…`, `VID_…`, `Board 1.x`)
    are renamed with the event-folder context, e.g. `Field_Trip_01.webp`, `Fresher_s_2025_Board_1_3.jpg`.
    `Copy of X` is normalized but retained; collisions receive stable suffixes.
@@ -60,14 +62,14 @@ SAC_website_assets/
 
 ## Asset Counts (2026-08 rebuild)
 
-| File type | Count | Notes |
-| --------- | ----- | ----- |
-| image (webp) | 1099 | incl. extracted images and the ARW conversion |
-| markdown | 185 | club docs, OB bios, event writeups, spreadsheets |
-| video (mp4) | 101 | compressed H.264 |
-| audio | 7 | Nrutya performance clips |
-| json | 1 | preserved source worksheet |
-| **total** | **1393** | ~520 MB (raw source was ~3.8 GB) |
+| File type    | Count    | Notes                                            |
+| ------------ | -------- | ------------------------------------------------ |
+| image (webp) | 1099     | incl. extracted images and the ARW conversion    |
+| markdown     | 185      | club docs, OB bios, event writeups, spreadsheets |
+| video (mp4)  | 101      | compressed H.264                                 |
+| audio        | 7        | Nrutya performance clips                         |
+| json         | 1        | preserved source worksheet                       |
+| **total**    | **1393** | ~520 MB (raw source was ~3.8 GB)                 |
 
 Clubs: 32 indexed slugs (including the preserved legacy Slashdot archive and the food/hygiene record); the website has dedicated pages for the published club/committee slugs.
 
@@ -82,6 +84,7 @@ uv run python rebuild_assets.py \
 ```
 
 Then regenerate the map:
+
 ```bash
 PYTHONPATH= .venv/bin/python -c "import sys; sys.path.insert(0,'.'); from generate_assets_map import generate_assets_map; from pathlib import Path; generate_assets_map(Path('../processed'))"
 ```

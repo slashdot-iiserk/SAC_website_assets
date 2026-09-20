@@ -4,7 +4,7 @@
 import os
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 SUPPORTED_FORMATS = {
     ".jpg",
@@ -27,6 +27,10 @@ def convert_to_webp(
     """Convert a single image to WebP format."""
     try:
         with Image.open(src) as img:
+            # Apply EXIF orientation BEFORE stripping metadata — WebP does not
+            # carry the orientation tag, so a portrait camera frame would
+            # otherwise be stored sideways with no way to correct it later.
+            img = ImageOps.exif_transpose(img)
             if img.mode == "RGBA":
                 img = img.convert("RGB")
             elif img.mode not in ("RGB", "L"):
