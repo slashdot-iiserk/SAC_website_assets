@@ -8,14 +8,6 @@ slug: "office-bearers-current"
 
 The club is currently run by the following Office Bearers (OBs):
 
-## 2025–26
-
-| Photo | Name | Batch |
-|---|---|---|
-| ![Shuvam Banerji Seal](../images/office-bearers/2025-26/shuvam-banerji-seal.webp) | Shuvam Banerji Seal | 22MS |
-| ![Anuprovo Debnath](../images/office-bearers/2025-26/anuprovo-debnath.webp) | Anuprovo Debnath | 23MS |
-| ![Abhinav Dhingra](../images/office-bearers/2025-26/abhinav-dhingra.webp) | Abhinav Dhingra | 24MS |
-
 ## 2026–27
 
 | Photo | Name | Batch |
