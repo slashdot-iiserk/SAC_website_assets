@@ -706,6 +706,17 @@ def classify_and_describe(
         or "_ob_" in cat_lower
         or cat_lower.endswith("_ob_term")
     )
+    # A bare tenure folder says nothing on its own: Slashdot files its portraits under
+    # images/office-bearers/2026-27/, so the category is "2026-27" and the portraits came
+    # out as role "other" with no person. Judge such a folder by the one that holds it —
+    # only an exact office-bearers folder, so Singularity's Past_Office_Bearers/2024_25/
+    # stays out of the current portrait wall.
+    if (
+        not is_ob_category
+        and len(rel_parts) > 3
+        and re.fullmatch(r"(\d{2}|\d{4})[-_]\d{2}", category)
+    ):
+        is_ob_category = rel_parts[-3].lower() in {"office-bearers", "office_bearers", "obs"}
 
     if ftype == "markdown" and not is_ob_category:
         # Generic club document
