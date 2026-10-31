@@ -102,7 +102,7 @@ CLUB_NAMES = {
     "SAC_Sports_Badminton": "Badminton",
     "SAC_Sports_Basketball": "Basketball",
     "SAC_Sports_Chess": "Chess Club",
-    "SAC_Sports_GYM": "GYM Club",
+    "SAC_Sports_GYM": "Gym Club",
     "SAC_Sports_Kabaddi": "Kabaddi Club",
     "SAC_Sports_SYDC": "SYDC - Self Defence Club",
     "SAC_Sports_Athletics": "Athletics Club",
